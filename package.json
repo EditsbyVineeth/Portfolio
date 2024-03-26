@@ -1,0 +1,19 @@
+{
+  "name": "postergallerycollection",
+  "version": "1.0.0",
+  "description": "Gallery of works",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callmeVineeth/PosterGallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/callmeVineeth/PosterGallery/issues"
+  },
+  "homepage": "https://github.com/callmeVineeth/PosterGallery#readme"
+}
