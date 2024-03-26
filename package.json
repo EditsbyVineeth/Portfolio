@@ -4,6 +4,8 @@
   "description": "Gallery of works",
   "main": "index.js",
   "scripts": {
+    "predeploy": "echo 'Running pre-deployment tasks...'",
+    "deploy": "echo 'Deploying your project...'" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
