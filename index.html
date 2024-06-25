@@ -5,93 +5,367 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poster Gallery</title>
     <style>
-     
-     h1{
-        text-align: center;
-        font-size: 4vw;
-     }
+       body {
+    background: linear-gradient(to bottom, #add8e6, #87ceeb);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20%;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+#galleryTable {
+    margin: 0 auto;
+    width: 70%;
+    border-collapse: collapse;
+}
+
+#galleryTable td {
+    padding: 10px;
+}
 
 
-        table {
-            width: 100%;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-            border-collapse: collapse;
-            padding: 8px;
-        }
-        th, td {
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 2%;
-        }
+#galleryTable img {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#galleryTable img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    background-color: #8cb7f4;
+    padding: 5px 0;
+    width: 100%;
+    height: 7%;
+    position: absolute;
+    top: 50%;
+    transition: top 0.3s;
+}
+
+.fixed-nav {
+    position: fixed;
+    top: 2%;
+    left: 0;
+}
+
+.nav-bar button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+}
+
+.nav-bar button:hover {
+    background-color: white;
+    color: black;
+}
+
+.content {
+    margin-top: 0;
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+/* Profile sections styles */
+.profile-section {
+    width: 60%;
+    margin: 2% auto 0;  /* Adjust margin to position the profile section */
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 30%;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.profile-pic {
+    width: 300px;
+    height: auto;
+    /* border-radius: 50%; */
+    object-fit: cover;
+}
+
+.profile-bio {
+    margin: 10px 0;
+}
+
+.profile-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-tag {
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .profile-section {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+}
+
+
     </style>
 </head>
+
 <body>
+    <!-- profile section -->
 
-<div class="container">
+    <div class="profile-section">
+        <img src="./Assets/profiles/profilepic.png" alt="Profile Picture" class="profile-pic">
+        <div class="profile-bio">
+            <p>John Doe</p>
+            <p>Web Developer with 5+ years of experience in creating interactive and dynamic websites.</p>
+        </div>
+        <div class="profile-skills">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+        </div>
+    </div>
+    
 
-    <h1>Gallery</h1>
-    <table id="galleryTable"></table>
-</div>
-<script>
-    // JSON data containing images
-    var imageData = {
-        "thumbnails": [
-            { "src": "./Assets/Thumbnails/1.png", "size": "small" },
-            { "src": "./Assets/Thumbnails/2.png", "size": "medium" },
-            { "src": "./Assets/Thumbnails/3.png", "size": "large" },
-            { "src": "./Assets/Thumbnails/mindset (1).png", "size": "large" },
-            { "src": "./Assets/Thumbnails/dgsggsd.png", "size": "large" },
-            // { "src": "/Assets/Thumbnails/The true s 2.jpg", "size": "large" },
-            { "src": "./Assets/Thumbnails/They Don’t tell you this.png", "size": "large" },
-            { "src": "./Assets/Thumbnails/Accept everything just the way it is.png", "size": "large" },
-            { "src": "./Assets/Thumbnails/Alone (1).png", "size": "large" },
-        ],
-        "posters": [
-            { "src": "./Assets/Posters/Beyond the Ordinary A Journey of Awakening..png", "size": "small" },
-            { "src": "posters/poster2.jpg", "size": "medium" },
-            { "src": "./Assets/Thumbnails/The true s 2.jpg", "size": "large" },
-            // { "src": "posters/poster3.jpg", "size": "large" }
-        ],
-        "banners": [
-            // { "src": "banners/banner2.jpg", "size": "medium" },
-            // { "src": "banners/banner3.jpg", "size": "large" }
-        ]
-    };
+  
+    <!---------------- navbar ------------------>
 
-    function createImageTable(images) {
-        var table = document.getElementById('galleryTable');
-        var rows = Math.ceil(images.length / 3);
-        var counter = 0;
+    <div class="nav-bar">
+        <button id="showThumbnails">Thumbnails</button>
+        <button id="showVideos">Videos</button>
+        <button id="showShortforms">Shortforms</button>
+    </div>
 
-        for (var i = 0; i < rows; i++) {
-            var row = table.insertRow();
+    <div id="thumbnailsContent" class="content active">
+        <div class="container">
+            <h1>Thumbnails Gallery</h1>
+            <table id="galleryTable"></table>
+        </div>
+    </div>
 
-            for (var j = 0; j < 3; j++) {
-                if (counter >= images.length) break;
+    <div id="videosContent" class="content">
+        <div class="container">
+            <h1>Videos</h1>
+            <p>No videos available</p>
+        </div>
+    </div>
 
-                var cell = row.insertCell();
-                var img = document.createElement('img');
-                img.src = images[counter].src;
-                img.alt = images[counter].size;
-                cell.appendChild(img);
+    <div id="shortformsContent" class="content">
+        <div class="container">
+            <h1>Shortforms</h1>
+            <p>No shortforms available</p>
+        </div>
+    </div>
 
-                counter++;
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+
+//  Responsive navbar 
+
+window.addEventListener('scroll', function() {
+        var navbar = document.querySelector('.nav-bar');
+        var profileSection = document.querySelector('.profile-section');
+        var profileSectionHeight = profileSection.getBoundingClientRect().height;
+
+        if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.3)) {
+            navbar.classList.add('fixed-nav');
+        } else {
+            navbar.classList.remove('fixed-nav');
+        }
+    });
+
+//  Responsive navbar 
+
+        var imageData = {
+            "thumbnails": [
+                { "src": "./Assets/Thumbnails/businessman.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/clown.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/2.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/1.png", "size": "small" },
+                { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
+                { "src": "./Assets/Thumbnails/3.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/will you survive.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/Accept everything just the way it is.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/will you survive (1).png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/gazaattack.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/mindset (1).png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/dgsggsd.png", "size": "medium" },
+            ],
+            "posters": [
+                { "src": "./Assets/Posters/Beyond the Ordinary A Journey of Awakening..png", "size": "small" },
+                { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
+            ],
+            "banners": []
+        };
+
+        function createImageTable(images) {
+            var table = document.getElementById('galleryTable');
+            table.innerHTML = '';  // Clear the table before adding new images
+            var rows = Math.ceil(images.length / 3);
+            var counter = 0;
+
+            for (var i = 0; i < rows; i++) {
+                var row = table.insertRow();
+
+                for (var j = 0; j < 3; j++) {
+                    if (counter >= images.length) break;
+
+                    var cell = row.insertCell();
+                    var img = document.createElement('img');
+                    img.src = images[counter].src;
+                    img.alt = images[counter].size;
+                    img.addEventListener('click', function() {
+                        var modal = document.getElementById("myModal");
+                        var modalImg = document.getElementById("img01");
+                        modal.style.display = "block";
+                        modalImg.src = this.src;
+                        adjustModalImageSize(modalImg);
+                    });
+                    cell.appendChild(img);
+
+                    counter++;
+                }
             }
         }
-    }
 
-    // Call the function for each image type
-    createImageTable(imageData.thumbnails);
-    createImageTable(imageData.posters);
-    createImageTable(imageData.banners);
-</script>
+        function adjustModalImageSize(modalImg) {
+            var modal = document.getElementById("myModal");
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
 
+            var imgWidth = modalImg.naturalWidth;
+            var imgHeight = modalImg.naturalHeight;
+
+            if (imgWidth > windowWidth * 0.9) {
+                modalImg.style.width = windowWidth * 0.9 + "px";
+                modalImg.style.height = "auto";
+            } else if (imgHeight > windowHeight * 0.7) {
+                modalImg.style.height = windowHeight * 0.7 + "px";
+                modalImg.style.width = "auto";
+            } else {
+                modalImg.style.width = imgWidth + "px";
+                modalImg.style.height = imgHeight + "px";
+            }
+        }
+
+        // Close the modal when clicking outside the image or on the close button
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal || event.target === span) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Adjust modal image size on window resize
+        window.addEventListener('resize', function() {
+            var modalImg = document.getElementById("img01");
+            if (modal.style.display === "block") {
+                adjustModalImageSize(modalImg);
+            }
+        });
+
+        // Tab functionality
+        document.getElementById('showThumbnails').addEventListener('click', function() {
+            showContent('thumbnailsContent');
+            createImageTable(imageData.thumbnails);
+        });
+
+        document.getElementById('showVideos').addEventListener('click', function() {
+            showContent('videosContent');
+        });
+
+        document.getElementById('showShortforms').addEventListener('click', function() {
+            showContent('shortformsContent');
+        });
+
+        function showContent(contentId) {
+            var contents = document.getElementsByClassName('content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            document.getElementById(contentId).classList.add('active');
+        }
+
+        // Initialize the default view
+        showContent('thumbnailsContent');
+        createImageTable(imageData.thumbnails);
+    </script>
 </body>
 </html>
