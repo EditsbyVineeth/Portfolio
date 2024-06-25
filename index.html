@@ -11,10 +11,17 @@
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
+.main-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+}
 
 .container {
     text-align: center;
     margin-top: 12%;
+    margin-bottom: 12%;
 }
 
 h1 {
@@ -29,6 +36,7 @@ h1 {
 
 #galleryTable td {
     padding: 10px;
+
 }
 
 
@@ -90,8 +98,8 @@ h1 {
     padding: 5px 0;
     width: 100%;
     height: 7%;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    /* top: 50%; */
     transition: top 0.3s;
 }
 
@@ -174,6 +182,12 @@ h1 {
         left: 0;
         transform: none;
     }
+
+    .fixed-nav {
+    position: fixed;
+    top: 2px;
+    left: 0;
+}
 }
 
 
@@ -182,6 +196,8 @@ h1 {
 
 <body>
     <!-- profile section -->
+ <div class="main-body">
+    
 
     <div class="profile-section">
         <img src="./Assets/profiles/profilepic.png" alt="Profile Picture" class="profile-pic">
@@ -233,6 +249,10 @@ h1 {
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
     </div>
+
+    </div>
+
+
 
     <script>
 
