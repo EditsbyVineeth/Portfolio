@@ -1,5 +1,5 @@
 {
-  "name": "postergallerycollection",
+  "name": "Portfoliocollection",
   "version": "1.0.0",
   "description": "Gallery of works",
   "main": "index.js",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/callmeVineeth/PosterGallery.git"
+    "url": "git+https://github.com/EditsbyVineeth/Portfolio.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/callmeVineeth/PosterGallery/issues"
+    "url": "https://github.com/EditsbyVineeth/Portfolio/issues"
   },
-  "homepage": "https://github.com/callmeVineeth/PosterGallery#readme"
+  "homepage": "https://github.com/EditsbyVineeth/Portfolio#readme"
 }
