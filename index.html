@@ -119,7 +119,7 @@ h1 {
     background-color: rgba(140, 183, 244, 0.5); /* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur effect for the glass look */
     padding: 10px 0;
-    width: 100%;
+    width: 60%;
     height: 10%;
     margin-top: 10px;
     position: relative;
@@ -131,11 +131,11 @@ h1 {
 .fixed-nav {
     position: fixed;
     top: 2%;
-    left: 0;
+    /* left: 50%; */
 }
 
 .nav-bar button {
-    background-color: #333;
+    background-color: #0b0b0b;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -164,11 +164,12 @@ h1 {
 
 /* Profile sections styles */
 .profile-section {
-    width: 60%;
+    width: 50%;
     margin: 2% auto 0;  /* Adjust margin to position the profile section */
     text-align: center;
     padding: 20px;
-    background: rgba(160, 230, 238, 0.8);
+    background-color: rgba(140, 183, 244, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 30%;
@@ -199,7 +200,54 @@ h1 {
     margin: 5px;
     border-radius: 5px;
     font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.skill-tag:hover{
+    transform: scale(1.04);
+}
+
+/* ---------------- HOBBIIES Section------------------*/
+
+.hobbies-section {
+    width: 80%;
+    height: 20vh; /* 20% of the viewport height */
+    margin: 40px auto;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hobbies-section h2 {
+    margin-top: 0;
+}
+
+.hobbies-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.hobby-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hobby-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* ---------------- HOBBIIES Section------------------*/
 
 
 
@@ -221,8 +269,7 @@ h1 {
 
     .fixed-nav {
     position: fixed;
-    top: 2px;
-    left: 0;
+    top: 0px;
 }
 
 #galleryTable {
@@ -309,6 +356,28 @@ h1 {
             <span class="skill-tag">React</span>
         </div>
     </div>
+    <!-- --------------- profile section-------------- -->
+
+
+
+
+    <!--------------------------------- HOBBIES ----------------------- -->
+
+
+    <div class="hobbies-section">
+        <h2>Hobbies</h2>
+        <div class="hobbies-icons">
+            <img src="path/to/spotify-icon.png" alt="Spotify" class="hobby-icon">
+            <img src="path/to/cinema-icon.png" alt="Cinema" class="hobby-icon">
+            <img src="path/to/icon3.png" alt="Hobby 3" class="hobby-icon">
+            <img src="path/to/icon4.png" alt="Hobby 4" class="hobby-icon">
+            <img src="path/to/icon5.png" alt="Hobby 5" class="hobby-icon">
+        </div>
+    </div>
+    
+
+
+    <!--------------------------------- HOBBIES ----------------------- -->
     
 
   
@@ -377,7 +446,7 @@ window.addEventListener('scroll', function() {
         var profileSection = document.querySelector('.profile-section');
         var profileSectionHeight = profileSection.getBoundingClientRect().height;
 
-        if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.1)) {
+        if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.01)) {
             navbar.classList.add('fixed-nav');
         } else {
             navbar.classList.remove('fixed-nav');
