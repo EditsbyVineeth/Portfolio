@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poster Gallery</title>
     <style>
-       body {
-    background: linear-gradient(to bottom, #add8e6, #87ceeb);
+
+  body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
@@ -19,25 +19,24 @@
 }
 
 .container {
+    width: 100%;
     text-align: center;
     margin-top: 12%;
     margin-bottom: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 h1 {
     margin-top: 0;
 }
 
-#galleryTable {
-    margin: 0 auto;
-    width: 70%;
-    border-collapse: collapse;
-}
 
-#galleryTable td {
-    padding: 10px;
-
-}
+/* tr{
+    background-color: #87ceeb;
+} */
 
 
 #galleryTable img {
@@ -49,9 +48,32 @@ h1 {
 
 #galleryTable img:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
+
+/* --------------------------------------- */
+
+/* ------------------ */
+/* Default table styles */
+#galleryTable {
+    width: 80%; 
+    border-collapse: collapse;
+    
+}
+
+
+
+/* Ensure table cells take up equal width by default */
+#galleryTable td {
+    width: 10%; /* Each cell initially takes up 50% of the table width */
+    padding: 12px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+}
+
+
+
+/* ---------------------------------------- */
 
 
 .modal {
@@ -94,14 +116,17 @@ h1 {
 .nav-bar {
     display: flex;
     justify-content: center;
-    background-color: #8cb7f4;
-    padding: 5px 0;
+    background-color: rgba(140, 183, 244, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect for the glass look */
+    padding: 10px 0;
     width: 100%;
-    height: 7%;
+    height: 10%;
+    margin-top: 10px;
     position: relative;
-    /* top: 50%; */
     transition: top 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: adds a subtle border to enhance the effect */
 }
+
 
 .fixed-nav {
     position: fixed;
@@ -142,8 +167,8 @@ h1 {
     width: 60%;
     margin: 2% auto 0;  /* Adjust margin to position the profile section */
     text-align: center;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    background: rgba(160, 230, 238, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 30%;
@@ -176,11 +201,22 @@ h1 {
     font-size: 14px;
 }
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 1000px) {
     .profile-section {
-        width: 100%;
+        height: 50%;
+        padding: 4%;
         left: 0;
         transform: none;
+        font-size: 4vw;
+    }
+    .profile-pic {
+    width: 90%;
+    }
+    
+    .skill-tag {
+        font-size: 18px;
     }
 
     .fixed-nav {
@@ -188,10 +224,71 @@ h1 {
     top: 2px;
     left: 0;
 }
+
+#galleryTable {
+    width: 95%; 
 }
 
 
-    </style>
+#galleryTable td {
+    padding: 4px;
+    
+}
+
+
+#galleryTable img{
+    width: 100%;
+}
+
+}
+
+@media (max-width: 700px) {
+    .profile-section {
+        width: 80%;
+        padding: 2%;
+    }
+
+    #galleryTable td {
+    padding: 1px;
+}
+}
+
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    #galleryTable td {
+        display: block; /* Display cells as blocks to stack vertically */
+        width: 100%; /* Each cell takes up full width */
+        float: none; /* Remove floating */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        /* Additional styles as needed for spacing, etc. */
+    }
+
+    /* Ensure two columns per row on smaller screens */
+    #galleryTable tr {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #galleryTable td {
+        width: 50%; /* Each cell takes up 50% of the row width */
+    }
+    
+    /* Optional: If you want to alternate row colors for better readability */
+    #galleryTable tr:nth-child(even) {
+        background-color: #f2f2f2; /* Example alternate row color */
+    }
+}
+
+
+/* -----
+
+
+------------------- */
+
+
+    </style>    
 </head>
 
 <body>
@@ -223,12 +320,29 @@ h1 {
         <button id="showShortforms">Shortforms</button>
     </div>
 
+    <!--  ---------------------- -->
+
+
     <div id="thumbnailsContent" class="content active">
         <div class="container">
             <h1>Thumbnails Gallery</h1>
-            <table id="galleryTable"></table>
+            <table id="galleryTable">
+                <tr>
+                    <td>Item 1</td>
+                    <td>Item 2</td>
+                </tr>
+                <tr>
+                    <td>Item 3</td>
+                    <td>Item 4</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </table>
         </div>
     </div>
+    
+
+
+    <!-------------------------  -->
 
     <div id="videosContent" class="content">
         <div class="container">
@@ -284,6 +398,7 @@ window.addEventListener('scroll', function() {
                 { "src": "./Assets/Thumbnails/Accept everything just the way it is.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/will you survive (1).png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/gazaattack.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/HAUNTED (1).png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/mindset (1).png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/dgsggsd.png", "size": "medium" },
             ],
@@ -303,7 +418,7 @@ window.addEventListener('scroll', function() {
             for (var i = 0; i < rows; i++) {
                 var row = table.insertRow();
 
-                for (var j = 0; j < 3; j++) {
+                for (var j = 0; j < 4; j++) {
                     if (counter >= images.length) break;
 
                     var cell = row.insertCell();
