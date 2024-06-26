@@ -10,6 +10,8 @@
     margin: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+    /* background-color: #d1d1d6; */
+    background-color: white;
 }
 .main-body{
     display: flex;
@@ -59,6 +61,7 @@ h1 {
 #galleryTable {
     width: 80%; 
     border-collapse: collapse;
+    background-color: rgb(242, 237, 237,0.4);
     
 }
 
@@ -116,7 +119,8 @@ h1 {
 .nav-bar {
     display: flex;
     justify-content: center;
-    background-color: rgba(140, 183, 244, 0.5); /* Semi-transparent background */
+    background-color: rgb(242, 237, 237,0.4);
+    /* background-color: rgba(168, 175, 167, 0.6);  */
     backdrop-filter: blur(10px); /* Blur effect for the glass look */
     padding: 10px 0;
     width: 60%;
@@ -124,7 +128,7 @@ h1 {
     margin-top: 10px;
     position: relative;
     transition: top 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: adds a subtle border to enhance the effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -168,8 +172,9 @@ h1 {
     margin: 2% auto 0;  /* Adjust margin to position the profile section */
     text-align: center;
     padding: 20px;
-    background-color: rgba(140, 183, 244, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(10px);
+    background-color: rgb(242, 237, 237);
+    /* background-color: rgba(22, 246, 10,0.9);
+    backdrop-filter: blur(10px); */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 30%;
@@ -194,7 +199,7 @@ h1 {
 }
 
 .skill-tag {
-    background: #333;
+    background: #0c0c0c;
     color: white;
     padding: 5px 10px;
     margin: 5px;
@@ -210,13 +215,16 @@ h1 {
 /* ---------------- HOBBIIES Section------------------*/
 
 .hobbies-section {
-    width: 80%;
+    width: 60%;
     height: 20vh; /* 20% of the viewport height */
     margin: 40px auto;
     text-align: center;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.8);
+    background-color: rgb(242, 237, 237);
     border-radius: 10px;
+    border-width: 2px 0 2px 0; /* top, right, bottom, left */
+    border-style: solid; 
+    border-color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -248,6 +256,45 @@ h1 {
 
 
 /* ---------------- HOBBIIES Section------------------*/
+
+
+/* ----------Services =-------------------- */
+
+
+.Skills-section {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.Skills-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.services div {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.services div:hover {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
 
 
 
@@ -285,6 +332,10 @@ h1 {
 
 #galleryTable img{
     width: 100%;
+}
+
+.hobbies-section {
+    width: 80%;
 }
 
 }
@@ -358,6 +409,20 @@ h1 {
     </div>
     <!-- --------------- profile section-------------- -->
 
+    <div class="Skills-section">
+        <h2>Skills and Services</h2>
+        <div class="services tags">
+            <div>Video Editing</div>
+            <div>Long-form Videos</div>
+            <div>Short-Form videos</div>
+            <div>Colour Correction</div>
+            <div> Finance & Realestate </div>
+            <div> Documentary Videos</div>
+            <div> Thumbnails </div>
+           
+        </div>
+    </div>
+
 
 
 
@@ -365,13 +430,13 @@ h1 {
 
 
     <div class="hobbies-section">
-        <h2>Hobbies</h2>
+        <h2>Skills and Softwares</h2>
         <div class="hobbies-icons">
-            <img src="path/to/spotify-icon.png" alt="Spotify" class="hobby-icon">
-            <img src="path/to/cinema-icon.png" alt="Cinema" class="hobby-icon">
-            <img src="path/to/icon3.png" alt="Hobby 3" class="hobby-icon">
-            <img src="path/to/icon4.png" alt="Hobby 4" class="hobby-icon">
-            <img src="path/to/icon5.png" alt="Hobby 5" class="hobby-icon">
+            <img src="./Assets/profiles/spotify.png" alt="Spotify" class="hobby-icon">
+            <img src="./Assets/profiles/film-slate.png" alt="Cinema" class="hobby-icon">
+            <img src="./Assets/profiles/hiking.png" alt="Hobby 3" class="hobby-icon">
+            <img src="./Assets/profiles/jeep.png" alt="Hobby 4" class="hobby-icon">
+            <img src="./Assets/profiles/montage.png" alt="Hobby 5" class="hobby-icon">
         </div>
     </div>
     
@@ -446,7 +511,7 @@ window.addEventListener('scroll', function() {
         var profileSection = document.querySelector('.profile-section');
         var profileSectionHeight = profileSection.getBoundingClientRect().height;
 
-        if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.01)) {
+        if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.001)) {
             navbar.classList.add('fixed-nav');
         } else {
             navbar.classList.remove('fixed-nav');
