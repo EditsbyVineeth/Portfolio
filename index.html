@@ -1,502 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poster Gallery</title>
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            /* background-color: #d1d1d6; */
+            background-color: white;
+        }
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    /* background-color: #d1d1d6; */
-    background-color: white;
-}
-.main-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction:column;
-}
+        .main-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
 
-.container {
-    width: 100%;
-    text-align: center;
-    margin-top: 12%;
-    margin-bottom: 12%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        .container {
+            width: 100%;
+            text-align: center;
+            margin-top: 12%;
+            margin-bottom: 12%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-}
+        }
 
-h1 {
-    margin-top: 0;
-}
+        h1 {
+            margin-top: 0;
+        }
 
 
-/* tr{
+        /* tr{
     background-color: #87ceeb;
 } */
 
 
-#galleryTable img {
-    cursor: pointer;
-    width: 100%;
-    height: auto;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+        #galleryTable img {
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-#galleryTable img:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
-}
-
-
-/* --------------------------------------- */
-
-/* ------------------ */
-/* Default table styles */
-#galleryTable {
-    width: 80%; 
-    border-collapse: collapse;
-    background-color: rgb(242, 237, 237,0.4);
-    
-}
+        #galleryTable img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
+        }
 
 
+        /* --------------------------------------- */
 
-/* Ensure table cells take up equal width by default */
-#galleryTable td {
-    width: 10%; /* Each cell initially takes up 50% of the table width */
-    padding: 12px; /* Adjust padding as needed */
-    border: 1px solid #ccc;
-}
+        /* ------------------ */
+        /* Default table styles */
+        #galleryTable {
+            width: 80%;
+            border-collapse: collapse;
+            background-color: rgb(242, 237, 237, 0.4);
+
+        }
 
 
 
-/* ---------------------------------------- */
+        /* Ensure table cells take up equal width by default */
+        #galleryTable td {
+            width: 10%;
+            /* Each cell initially takes up 50% of the table width */
+            padding: 12px;
+            /* Adjust padding as needed */
+            border: 1px solid #ccc;
+        }
 
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
 
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 80%;
-    max-height: 80%;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.nav-bar {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(242, 237, 237,0.4);
-    /* background-color: rgba(168, 175, 167, 0.6);  */
-    backdrop-filter: blur(10px); /* Blur effect for the glass look */
-    padding: 10px 0;
-    width: 60%;
-    height: 10%;
-    margin-top: 10px;
-    position: relative;
-    transition: top 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+        /* ---------------------------------------- */
 
 
-.fixed-nav {
-    position: fixed;
-    top: 2%;
-    /* left: 50%; */
-}
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
-.nav-bar button {
-    background-color: #0b0b0b;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-}
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
 
-.nav-bar button:hover {
-    background-color: white;
-    color: black;
-}
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-.content {
-    margin-top: 0;
-    display: none;
-}
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-.content.active {
-    display: block;
-}
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(69, 65, 65, 0.4);
+            backdrop-filter: blur(10px);
+            /* Blur effect for the glass look */
+            padding: 10px 0;
+            width: 60%;
+            height: 10%;
+            margin-top: 10px;
+            position: relative;
+            transition: top 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-/* Profile sections styles */
-.profile-section {
-    width: 50%;
-    margin: 2% auto 0;  /* Adjust margin to position the profile section */
-    text-align: center;
-    padding: 20px;
-    background-color: rgb(242, 237, 237);
-    /* background-color: rgba(22, 246, 10,0.9);
+
+        .fixed-nav {
+            position: fixed;
+            top: 2%;
+
+        }
+
+        .nav-bar button {
+            background-color: #0b0b0b;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+        }
+
+        .nav-bar button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .content {
+            margin-top: 0;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        /* Profile sections styles */
+        .profile-section {
+            width: 50%;
+            margin: 2% auto 0;
+            /* Adjust margin to position the profile section */
+            text-align: center;
+            padding: 20px;
+            background-color: rgb(242, 237, 237);
+            /* background-color: rgba(22, 246, 10,0.9);
     backdrop-filter: blur(10px); */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 30%;
-    overflow-y: auto; /* Allow vertical scrolling */
-}
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 30%;
+            overflow-y: auto;
+            /* Allow vertical scrolling */
+        }
 
-.profile-pic {
-    width: 300px;
-    height: auto;
-    /* border-radius: 50%; */
-    object-fit: cover;
-}
+        .profile-pic {
+            width: 300px;
+            height: auto;
+            /* border-radius: 50%; */
+            object-fit: cover;
+        }
 
-.profile-bio {
-    margin: 10px 0;
-}
+        .profile-bio {
+            margin: 10px 0;
+            font-size: 20px;
+        }
 
-.profile-skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        .profile-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-.skill-tag {
-    background: #0c0c0c;
-    color: white;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+        /* ---------------------- */
 
-.skill-tag:hover{
-    transform: scale(1.04);
-}
+        .contact-info{
+            display: flex;
+            align-items: left;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
 
-/* ---------------- HOBBIIES Section------------------*/
+        .contact-info .email,
+        .contact-info .discord {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
 
-.hobbies-section {
-    width: 60%;
-    height: 20vh; /* 20% of the viewport height */
-    margin: 40px auto;
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(242, 237, 237);
-    border-radius: 10px;
-    border-width: 2px 0 2px 0; /* top, right, bottom, left */
-    border-style: solid; 
-    border-color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .contact-info .icon {
+            width: 20px;
+            /* Adjust size as needed */
+            height: 20px;
+            margin-right: 10px;
+            /* Adjust spacing as needed */
+        }
 
-.hobbies-section h2 {
-    margin-top: 0;
-}
-
-.hobbies-icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-}
-
-.hobby-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.hobby-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        .email, .discord{
+            background-color: white;
+            border-radius: 4px;
+            padding: 8px;
+            width: max-content;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+        }
 
 
 
+        /* ------------------------ */
 
-/* ---------------- HOBBIIES Section------------------*/
+        .skill-tag {
+            background: #0c0c0c;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
+        .skill-tag:hover {
+            transform: scale(1.04);
+        }
 
-/* ----------Services =-------------------- */
+        .highlight {
+            background-color: rgb(32, 243, 21);
+            /* Background color for highlighting */
+            color: black;
+            /* Text color */
+            padding: 1px 1px;
+            /* Optional: Add some padding */
+            border-radius: 3px;
+            /* Optional: Add rounded corners */
+        }
 
+        /* ---------------- HOBBIIES Section------------------*/
 
-.Skills-section {
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-}
+        .hobbies-section {
+            width: 60%;
+            height: 20vh;
+            /* 20% of the viewport height */
+            margin: 40px auto;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(242, 237, 237);
+            border-radius: 10px;
+            border-width: 2px 0 2px 0;
+            /* top, right, bottom, left */
+            border-style: solid;
+            border-color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.Skills-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+        .hobbies-section h2 {
+            margin-top: 0;
+        }
 
-.services {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        .hobbies-icons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
 
-.services div {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 10px 20px;
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
+        .hobby-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.services div:hover {
-    background-color: #ddd;
-    border-color: #bbb;
-}
-
-
-
-
-@media (max-width: 1000px) {
-    .profile-section {
-        height: 50%;
-        padding: 4%;
-        left: 0;
-        transform: none;
-        font-size: 4vw;
-    }
-    .profile-pic {
-    width: 90%;
-    }
-    
-    .skill-tag {
-        font-size: 18px;
-    }
-
-    .fixed-nav {
-    position: fixed;
-    top: 0px;
-}
-
-#galleryTable {
-    width: 95%; 
-}
-
-
-#galleryTable td {
-    padding: 4px;
-    
-}
-
-
-#galleryTable img{
-    width: 100%;
-}
-
-.hobbies-section {
-    width: 80%;
-}
-
-}
-
-@media (max-width: 700px) {
-    .profile-section {
-        width: 80%;
-        padding: 2%;
-    }
-
-    #galleryTable td {
-    padding: 1px;
-}
-}
+        .hobby-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
 
 
 
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    #galleryTable td {
-        display: block; /* Display cells as blocks to stack vertically */
-        width: 100%; /* Each cell takes up full width */
-        float: none; /* Remove floating */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
-        /* Additional styles as needed for spacing, etc. */
-    }
 
-    /* Ensure two columns per row on smaller screens */
-    #galleryTable tr {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    #galleryTable td {
-        width: 50%; /* Each cell takes up 50% of the row width */
-    }
-    
-    /* Optional: If you want to alternate row colors for better readability */
-    #galleryTable tr:nth-child(even) {
-        background-color: #f2f2f2; /* Example alternate row color */
-    }
-}
+        /* ---------------- HOBBIIES Section------------------*/
 
 
-/* -----
+        /* ----------Services =-------------------- */
+
+
+        .Skills-section {
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .Skills-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .services div {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .services div:hover {
+            background-color: #ddd;
+            border-color: #bbb;
+        }
+
+        .content{
+            margin: 20px;
+        }
+
+        .contact{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            width: 60%;
+            border-width: 1px 0 4px 0;
+            border-style: solid;
+            border-color: #100d0d;
+            border-radius: 4px;
+            background-color: rgb(242, 237, 237);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-message{
+            width: 50%;
+        }
+
+
+
+
+        @media (max-width: 1000px) {
+            .profile-section {
+                height: 50%;
+                padding: 4%;
+                left: 0;
+                transform: none;
+                font-size: 4vw;
+            }
+
+            .profile-pic {
+                width: 90%;
+            }
+
+            .profile-bio {
+                font-size: 18px;
+            }
+
+
+            .skill-tag {
+                font-size: 18px;
+            }
+
+            .fixed-nav {
+                position: fixed;
+                top: 0px;
+            }
+
+            #galleryTable {
+                width: 95%;
+            }
+
+
+            #galleryTable td {
+                padding: 4px;
+
+            }
+
+
+            #galleryTable img {
+                width: 100%;
+            }
+
+            .hobbies-section {
+                width: 80%;
+            }
+
+            .contact{
+              padding: 10px;
+              width: 80%;
+            }
+
+            .contact-message{
+            width: 80%;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+            .profile-section {
+                width: 80%;
+                padding: 2%;
+            }
+
+            #galleryTable td {
+                padding: 1px;
+            }
+
+            .contact-message{
+            width: 95%;
+            }
+        }
+
+
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            #galleryTable td {
+                display: block;
+                /* Display cells as blocks to stack vertically */
+                width: 100%;
+                /* Each cell takes up full width */
+                float: none;
+                /* Remove floating */
+                box-sizing: border-box;
+                /* Include padding and border in the element's total width and height */
+                /* Additional styles as needed for spacing, etc. */
+            }
+
+            /* Ensure two columns per row on smaller screens */
+            #galleryTable tr {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            #galleryTable td {
+                width: 50%;
+                /* Each cell takes up 50% of the row width */
+            }
+
+            /* Optional: If you want to alternate row colors for better readability */
+            #galleryTable tr:nth-child(even) {
+                background-color: #f2f2f2;
+                /* Example alternate row color */
+            }
+        }
+
+
+        /* -----
 
 
 ------------------- */
-
-
-    </style>    
+    </style>
 </head>
 
 <body>
     <!-- profile section -->
- <div class="main-body">
-    
+    <div class="main-body">
 
-    <div class="profile-section">
-        <img src="./Assets/profiles/profilepic.png" alt="Profile Picture" class="profile-pic">
-        <div class="profile-bio">
-            <p>John Doe</p>
-            <p>Web Developer with 5+ years of experience in creating interactive and dynamic websites.</p>
+
+        <div class="profile-section">
+            <img src="./Assets/profiles/profilepic.png" alt="Profile Picture" class="profile-pic">
+            <div class="profile-bio">
+                <p style="font-size: 24px; font-weight: bolder;"> Vineeth Vijayan</p>
+
+                <!-- <div style=" border: 1px solid; padding: 1%; width: 50%; ">
+                    <span>Video Editing</span> |
+                    <span>Thumbnail Creation</span>
+                </div> -->
+
+                <p class="profile-bio"> Passionate and creative
+                    <span class="highlight">Video Editor</span> ,
+                    <span class="highlight"> Thumbnail Creator </span>
+                    and <span class=" highlight">Youtube Growth
+                        Analyst </span>, dedicated to crafting engaging visual content.
+                    eager to help channels and brands thrive with fresh insights.
+                    Ready to bring innovative ideas and a keen eye for detail to your projects.
+
+                </p>
+
+            </div>
+            <div class="profile-skills">
+                <span class="skill-tag">Davinci Resolve</span>
+                <span class="skill-tag">Fution</span>
+                <span class="skill-tag">Photoshop</span>
+                <span class="skill-tag">motion Graphics</span>
+            </div>
+
+            <div class="contact-info">
+                <div class="email">
+                    <img src="./Assets/profiles/email.png" alt="Gmail Icon" class="icon">
+                    <span>editsbyvineeth@gmail.com</span>
+                </div>
+                <div class="discord">
+                    <img src="./Assets/profiles/discord.png" alt="Discord Icon" class="icon">
+                    <span>ethen2408</span>
+                </div>
+            </div>
+
+
+
         </div>
-        <div class="profile-skills">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React</span>
+        <!-- --------------- profile section-------------- -->
+
+        <div class="Skills-section">
+            <h2>Skills and Services</h2>
+            <div class="services tags">
+                <div>Video Editing</div>
+                <div>Long-form Videos</div>
+                <div>Short-Form videos</div>
+                <div>Color Correction</div>
+                <div> Finance & Realestate </div>
+                <div> Documentary Videos</div>
+                <div> Thumbnails </div>
+
+            </div>
         </div>
-    </div>
-    <!-- --------------- profile section-------------- -->
 
-    <div class="Skills-section">
-        <h2>Skills and Services</h2>
-        <div class="services tags">
-            <div>Video Editing</div>
-            <div>Long-form Videos</div>
-            <div>Short-Form videos</div>
-            <div>Colour Correction</div>
-            <div> Finance & Realestate </div>
-            <div> Documentary Videos</div>
-            <div> Thumbnails </div>
-           
+
+
+
+        <!--------------------------------- HOBBIES ----------------------- -->
+
+
+        <div class="hobbies-section">
+            <h2>Skills and Softwares</h2>
+            <div class="hobbies-icons">
+                <img src="./Assets/profiles/spotify.png" alt="Spotify" class="hobby-icon">
+                <img src="./Assets/profiles/film-slate.png" alt="Cinema" class="hobby-icon">
+                <img src="./Assets/profiles/hiking.png" alt="Hobby 3" class="hobby-icon">
+                <img src="./Assets/profiles/jeep.png" alt="Hobby 4" class="hobby-icon">
+                <img src="./Assets/profiles/montage.png" alt="Hobby 5" class="hobby-icon">
+            </div>
         </div>
-    </div>
 
 
 
+        <!--------------------------------- HOBBIES ----------------------- -->
 
-    <!--------------------------------- HOBBIES ----------------------- -->
 
 
-    <div class="hobbies-section">
-        <h2>Skills and Softwares</h2>
-        <div class="hobbies-icons">
-            <img src="./Assets/profiles/spotify.png" alt="Spotify" class="hobby-icon">
-            <img src="./Assets/profiles/film-slate.png" alt="Cinema" class="hobby-icon">
-            <img src="./Assets/profiles/hiking.png" alt="Hobby 3" class="hobby-icon">
-            <img src="./Assets/profiles/jeep.png" alt="Hobby 4" class="hobby-icon">
-            <img src="./Assets/profiles/montage.png" alt="Hobby 5" class="hobby-icon">
+        <!---------------- navbar ------------------>
+
+        <div class="nav-bar">
+            <button id="showThumbnails">Thumbnails</button>
+            <button id="showVideos">Videos</button>
+            <button id="showShortforms">Shortforms</button>
         </div>
-    </div>
-    
+
+        <!--  ---------------------- -->
 
 
-    <!--------------------------------- HOBBIES ----------------------- -->
-    
-
-  
-    <!---------------- navbar ------------------>
-
-    <div class="nav-bar">
-        <button id="showThumbnails">Thumbnails</button>
-        <button id="showVideos">Videos</button>
-        <button id="showShortforms">Shortforms</button>
-    </div>
-
-    <!--  ---------------------- -->
-
-
-    <div id="thumbnailsContent" class="content active">
-        <div class="container">
-            <h1>Thumbnails Gallery</h1>
-            <table id="galleryTable">
-                <tr>
-                    <td>Item 1</td>
-                    <td>Item 2</td>
-                </tr>
-                <tr>
-                    <td>Item 3</td>
-                    <td>Item 4</td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </table>
+        <div id="thumbnailsContent" class="content active">
+            <div class="container">
+                <h1>Thumbnails Gallery</h1>
+                <table id="galleryTable">
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item 2</td>
+                    </tr>
+                    <tr>
+                        <td>Item 3</td>
+                        <td>Item 4</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </table>
+            </div>
         </div>
-    </div>
-    
 
 
-    <!-------------------------  -->
 
-    <div id="videosContent" class="content">
-        <div class="container">
-            <h1>Videos</h1>
-            <p>No videos available</p>
+        <!-------------------------  -->
+
+        <div id="videosContent" class="content">
+            <div class="container">
+                <h1>Videos</h1>
+                <p> This section temporarily not available , sorry for your inconvience</p>
+            </div>
         </div>
-    </div>
 
-    <div id="shortformsContent" class="content">
-        <div class="container">
-            <h1>Shortforms</h1>
-            <p>No shortforms available</p>
+        <div id="shortformsContent" class="content">
+            <div class="container">
+                <h1>Shortforms</h1>
+                <p> This section temporarily not available, sorry for your inconvience </p>
+            </div>
         </div>
-    </div>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-    </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+
+        <div class="contact">
+            <h2>Contact</h2>
+            <div class="contact-message">
+                Let's get in touch!
+                Thank you for the visit! Feel free to contact me regarding
+                any kind of jobs,collaborations or if you just want to say hello.
+                Find me on Discord or Gmail.
+            </div>
+
+            <div class="contact-info">
+                <div class="email">
+                    <img src="./Assets/profiles/email.png" alt="Gmail Icon" class="icon">
+                    <span>editsbyvineeth@gmail.com</span>
+                </div>
+                <div class="discord">
+                    <img src="./Assets/profiles/discord.png" alt="Discord Icon" class="icon">
+                    <span>ethen2408</span>
+                </div>
+            </div>
+            
+        </div>
 
     </div>
 
@@ -504,21 +660,21 @@ h1 {
 
     <script>
 
-//  Responsive navbar 
+        //  Responsive navbar 
 
-window.addEventListener('scroll', function() {
-        var navbar = document.querySelector('.nav-bar');
-        var profileSection = document.querySelector('.profile-section');
-        var profileSectionHeight = profileSection.getBoundingClientRect().height;
+        window.addEventListener('scroll', function () {
+            var navbar = document.querySelector('.nav-bar');
+            var profileSection = document.querySelector('.profile-section');
+            var profileSectionHeight = profileSection.getBoundingClientRect().height;
 
-        if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.001)) {
-            navbar.classList.add('fixed-nav');
-        } else {
-            navbar.classList.remove('fixed-nav');
-        }
-    });
+            if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.001)) {
+                navbar.classList.add('fixed-nav');
+            } else {
+                navbar.classList.remove('fixed-nav');
+            }
+        });
 
-//  Responsive navbar 
+        //  Responsive navbar 
 
         var imageData = {
             "thumbnails": [
@@ -559,7 +715,7 @@ window.addEventListener('scroll', function() {
                     var img = document.createElement('img');
                     img.src = images[counter].src;
                     img.alt = images[counter].size;
-                    img.addEventListener('click', function() {
+                    img.addEventListener('click', function () {
                         var modal = document.getElementById("myModal");
                         var modalImg = document.getElementById("img01");
                         modal.style.display = "block";
@@ -587,6 +743,7 @@ window.addEventListener('scroll', function() {
             } else if (imgHeight > windowHeight * 0.7) {
                 modalImg.style.height = windowHeight * 0.7 + "px";
                 modalImg.style.width = "auto";
+
             } else {
                 modalImg.style.width = imgWidth + "px";
                 modalImg.style.height = imgHeight + "px";
@@ -596,14 +753,14 @@ window.addEventListener('scroll', function() {
         // Close the modal when clicking outside the image or on the close button
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
-        modal.addEventListener('click', function(event) {
+        modal.addEventListener('click', function (event) {
             if (event.target === modal || event.target === span) {
                 modal.style.display = "none";
             }
         });
 
         // Adjust modal image size on window resize
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             var modalImg = document.getElementById("img01");
             if (modal.style.display === "block") {
                 adjustModalImageSize(modalImg);
@@ -611,16 +768,16 @@ window.addEventListener('scroll', function() {
         });
 
         // Tab functionality
-        document.getElementById('showThumbnails').addEventListener('click', function() {
+        document.getElementById('showThumbnails').addEventListener('click', function () {
             showContent('thumbnailsContent');
             createImageTable(imageData.thumbnails);
         });
 
-        document.getElementById('showVideos').addEventListener('click', function() {
+        document.getElementById('showVideos').addEventListener('click', function () {
             showContent('videosContent');
         });
 
-        document.getElementById('showShortforms').addEventListener('click', function() {
+        document.getElementById('showShortforms').addEventListener('click', function () {
             showContent('shortformsContent');
         });
 
@@ -637,4 +794,5 @@ window.addEventListener('scroll', function() {
         createImageTable(imageData.thumbnails);
     </script>
 </body>
+
 </html>
