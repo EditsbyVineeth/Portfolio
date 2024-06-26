@@ -12,6 +12,7 @@
             overflow-x: hidden;
             /* background-color: #d1d1d6; */
             background-color: white;
+            font-family:Verdana, Geneva, Tahoma, sans-serif ;
         }
 
         .main-body {
@@ -35,6 +36,8 @@
         h1 {
             margin-top: 0;
         }
+
+      
 
 
         /* tr{
@@ -173,12 +176,9 @@
         .profile-section {
             width: 50%;
             margin: 2% auto 0;
-            /* Adjust margin to position the profile section */
             text-align: center;
             padding: 20px;
             background-color: rgb(242, 237, 237);
-            /* background-color: rgba(22, 246, 10,0.9);
-    backdrop-filter: blur(10px); */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             height: 30%;
@@ -193,9 +193,14 @@
             object-fit: cover;
         }
 
+        #bio-name{
+           font-family:Verdana, Geneva, Tahoma, sans-serif;
+           font-size: 44px;
+        }
+
         .profile-bio {
             margin: 10px 0;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .profile-skills {
@@ -274,7 +279,7 @@
             width: 60%;
             height: 20vh;
             /* 20% of the viewport height */
-            margin: 40px auto;
+            margin: 40px auto;  
             text-align: center;
             padding: 10px;
             background-color: rgb(242, 237, 237);
@@ -288,6 +293,7 @@
 
         .hobbies-section h2 {
             margin-top: 0;
+            
         }
 
         .hobbies-icons {
@@ -296,14 +302,24 @@
             align-items: center;
             height: 100%;
         }
-
+/* 
         .hobby-icon {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
             transition: transform 0.2s, box-shadow 0.2s;
-        }
+        } */
+
+        .hobby-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit:cover;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block; /* Ensure it's treated as a block element */
+}
+
 
         .hobby-icon:hover {
             transform: scale(1.1);
@@ -386,7 +402,6 @@
                 padding: 4%;
                 left: 0;
                 transform: none;
-                font-size: 4vw;
             }
 
             .profile-pic {
@@ -502,12 +517,8 @@
         <div class="profile-section">
             <img src="./Assets/profiles/profilepic.png" alt="Profile Picture" class="profile-pic">
             <div class="profile-bio">
-                <p style="font-size: 24px; font-weight: bolder;"> Vineeth Vijayan</p>
+                <span id="bio-name" style="font-size: 24px; font-weight: bolder;"> Vineeth Vijayan</span>
 
-                <!-- <div style=" border: 1px solid; padding: 1%; width: 50%; ">
-                    <span>Video Editing</span> |
-                    <span>Thumbnail Creation</span>
-                </div> -->
 
                 <p class="profile-bio"> Passionate and creative
                     <span class="highlight">Video Editor</span> ,
@@ -550,7 +561,7 @@
                 <div>Long-form Videos</div>
                 <div>Short-Form videos</div>
                 <div>Color Correction</div>
-                <div> Finance & Realestate </div>
+                <div> Finance & Realestate Ads</div>
                 <div> Documentary Videos</div>
                 <div> Thumbnails </div>
 
@@ -564,13 +575,13 @@
 
 
         <div class="hobbies-section">
-            <h2>Skills and Softwares</h2>
+            <h2>Softwares</h2>
             <div class="hobbies-icons">
-                <img src="./Assets/profiles/spotify.png" alt="Spotify" class="hobby-icon">
-                <img src="./Assets/profiles/film-slate.png" alt="Cinema" class="hobby-icon">
-                <img src="./Assets/profiles/hiking.png" alt="Hobby 3" class="hobby-icon">
-                <img src="./Assets/profiles/jeep.png" alt="Hobby 4" class="hobby-icon">
-                <img src="./Assets/profiles/montage.png" alt="Hobby 5" class="hobby-icon">
+                <img src="./Assets/profiles/1.png" alt="Spotify" class="hobby-icon">
+                <img src="./Assets/profiles/montage.png" alt="Cinema" class="hobby-icon">
+                <img src="./Assets/profiles/2.png" alt="Hobby 3" class="hobby-icon">
+                <img src="./Assets/profiles/3.png" alt="Hobby 4" class="hobby-icon">
+                <img src="./Assets/profiles/4.png" alt="Hobby 5" class="hobby-icon">
             </div>
         </div>
 
