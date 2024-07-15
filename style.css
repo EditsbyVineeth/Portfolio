@@ -1,0 +1,507 @@
+
+body {
+    margin: 0;
+    
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    /* background-color: #d1d1d6; */
+    background-color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.main-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    margin-top: 12%;
+    margin-bottom: 12%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    margin-top: 0;
+}
+
+/* tr{
+background-color: #87ceeb;
+} */
+
+
+#galleryTable img {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#galleryTable img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --------------------------------------- */
+
+/* ------------------ */
+/* Default table styles */
+#galleryTable {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: rgb(192, 221, 246);
+
+}
+
+
+
+/* Ensure table cells take up equal width by default */
+#galleryTable td {  
+    width: 10%;
+    /* Each cell initially takes up 50% of the table width */
+    padding: 12px;
+    /* Adjust padding as needed */
+    border: 1px solid #ccc; 
+}
+
+
+
+/* ---------------------------------------- */
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(69, 65, 65, 0.4);
+    backdrop-filter: blur(10px);
+    /* Blur effect for the glass look */
+    padding: 10px 0;
+    width: 60%;
+    height: 10%;
+    margin-top: 10px;
+    position: relative;
+    transition: top 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.fixed-nav {
+    position: fixed;
+    top: 2%;
+
+}
+
+.nav-bar button {
+    background-color: #0b0b0b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+}
+
+.nav-bar button:hover {
+    background-color: white;    
+    color: black;
+}
+
+.content {
+    margin-top: 0;
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+/* Profile sections styles */
+.profile-section {      
+    width: 50%; 
+    margin: 2% auto 0;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(242, 237, 237);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 30%;
+    overflow-y: auto;
+    /* Allow vertical scrolling */
+}
+
+.profile-pic {
+    width: 300px;
+    height: auto;
+    /* border-radius: 50%; */
+    object-fit: cover;
+}
+
+#bio-name{
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 44px;
+}
+
+.profile-bio {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.profile-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ---------------------- */
+
+.contact-info{
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-info .email,
+.contact-info .discord {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.contact-info .icon {
+    width: 20px;
+    /* Adjust size as needed */
+    height: 20px;
+    margin-right: 10px;
+    /* Adjust spacing as needed */
+}
+
+.email, .discord{
+    background-color: white;
+    border-radius: 4px;
+    padding: 8px;
+    width: max-content;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+}
+
+
+
+/* ------------------------ */
+
+.skill-tag {
+    background: #0c0c0c;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;        
+
+
+    border-radius: 5px;
+    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+    
+.skill-tag:hover {
+    transform: scale(1.04);
+}
+
+.highlight {
+    background-color: rgb(32, 243, 21);
+    /* Background color for h   ighlighting */
+    color: black;
+    /* Text color */
+    padding: 1px 1px;
+    /* Optional: Add some padding */
+    border-radius: 3px;
+    /* Optional: Add rounded
+    
+    
+    
+    corners */
+}
+
+/* ---------------- HOBBIIES Section------------------*/
+
+.hobbies-section {
+    width: 60%;
+    height: 20vh;
+    /* 20% of the viewport height */
+    margin: 40px auto;  
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(242, 237, 237);
+    border-radius: 10px;
+    border-width: 2px 0 2px 0;
+    /* top, right, bottom, left */
+    border-style: solid;
+    border-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hobbies-section h2 {
+    margin-top: 0;
+    
+}
+
+.hobbies-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+/* 
+.hobby-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.2s, box-shadow 0.2s;
+} */
+
+.hobby-icon {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+object-fit:cover;
+transition: transform 0.2s, box-shadow 0.2s;
+display: block; /* Ensure it's treated as a block element */
+}
+
+
+.hobby-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* ---------------- HOBBIIES Section------------------*/
+
+
+/* ----------Services =-------------------- */
+
+
+.Skills-section {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.Skills-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.services div {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.services div:hover {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+.content{
+    margin: 20px;
+}
+
+.contact{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 60%;
+    border-width: 1px 0 4px 0;
+    border-style: solid;
+    border-color: #100d0d;
+    border-radius: 4px;
+    background-color: rgb(242, 237, 237);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-message{
+    width: 50%;
+}
+
+
+
+
+@media (max-width: 1000px) {
+    .profile-section {
+        height: 50%;
+        padding: 4%;
+        left: 0;
+        transform: none;
+    }
+
+    .profile-pic {
+        width: 90%;
+    }
+
+    .profile-bio {
+        font-size: 18px;
+    }
+
+
+    .skill-tag {
+        font-size: 18px;
+    }
+
+    .fixed-nav {
+        position: fixed;
+        top: 0px;
+    }
+
+    #galleryTable {
+        width: 95%;
+    }
+
+
+    #galleryTable td {
+        padding: 4px;
+
+    }
+
+
+    #galleryTable img {
+        width: 100%;
+    }
+
+    .hobbies-section {
+        width: 80%;
+    }
+
+    .contact{
+      padding: 10px;
+      width: 80%;
+    }
+
+    .contact-message{
+    width: 80%;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .profile-section {
+        width: 80%;
+        padding: 2%;
+    }
+
+    #galleryTable td {
+        padding: 1px;
+    }
+
+    .contact-message{
+    width: 95%;
+    }
+}
+
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    #galleryTable td {
+        display: block;
+        /* Display cells as blocks to stack vertically */
+        width: 100%;
+        /* Each cell takes up full width */
+        float: none;
+        /* Remove floating */
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width and height */
+        /* Additional styles as needed for spacing, etc. */
+    }
+
+    /* Ensure two columns per row on smaller screens */
+    #galleryTable tr {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #galleryTable td {
+        width: 50%;
+        /* Each cell takes up 50% of the row width */
+    }
+
+    /* Optional: If you want to alternate row colors for better readability */
+    #galleryTable tr:nth-child(even) {
+        background-color: #f2f2f2;
+        /* Example alternate row color */
+    }
+}
+
+
+/* -----
+
+
+------------------- */
