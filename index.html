@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VnCreations</title>
-    <link rel="icon" href="./Assets/profiles/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./Assets/profiles/favicon.ico" type="image/x-i
+    
+    con">
     <link rel="stylesheet" type="text/css" href="style.css">
    
 </head>
@@ -14,8 +16,6 @@
     <!-- profile section -->
 
     <div class="main-body">
-
-
 
         
         <div class="profile-section">
@@ -50,6 +50,7 @@
                 <div class="discord">
                     <img src="./Assets/profiles/discord.png" alt="Discord Icon" class="icon">
                     <span>ethen2408</span>
+                    
                 </div>
             </div>
 
@@ -97,7 +98,7 @@
 
         <!---------------- navbar ------------------>
 
-        <div class="nav-bar">
+        <div class="nav-bar">   
             <button id="showThumbnails">Thumbnails</button>
             <button id="showVideos">Videos</button>
             <button id="showShortforms">Shortforms</button>
@@ -157,7 +158,7 @@
                 Thank you for the visit! Feel free to contact me regarding
                 any kind of jobs,collaborations or if you just want to say hello.
                 Find me on Discord or Gmail.
-            </div>
+            </div>      
 
             <div class="contact-info">
                 <div class="email">
@@ -198,16 +199,16 @@
 
                 { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_01 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_03 copy.png", "size": "medium" },
-                { "src": "./Assets/Posters/thumb05.jpg", "size": "small" },
-                { "src": "./Assets/Thumbnails/trade1.jpg", "size": "medium" },
-                { "src": "./Assets/Thumbnails/trade2.jpg", "size": "medium" },
-                { "src": "./Assets/Thumbnails/trade3.jpg", "size": "medium" },
-                { "src": "./Assets/Posters/thumb06.jpg", "size": "small" },
-                { "src": "./Assets/Thumbnails/trade4.jpg", "size": "medium" },
-                { "src": "./Assets/Thumbnails/trade7.jpg", "size": "medium" },
+                // { "src": "./Assets/Posters/thumb05.jpg", "size": "small" },
+                // { "src": "./Assets/Thumbnails/trade1.jpg", "size": "medium" },
+                // { "src": "./Assets/Thumbnails/trade2.jpg", "size": "medium" },
+                // { "src": "./Assets/Thumbnails/trade3.jpg", "size": "medium" },
+                // { "src": "./Assets/Posters/thumb06.jpg", "size": "small" },
+                // { "src": "./Assets/Thumbnails/trade4.jpg", "size": "medium" },
+                // { "src": "./Assets/Thumbnails/trade7.jpg", "size": "medium" },
                 
-                { "src": "./Assets/Posters/thumb01.jpg", "size": "small" },
-                // { "src": "./Assets/Posters/thumb02.jpg", "size": "small" },
+                // { "src": "./Assets/Posters/thumb01.jpg", "size": "small" },
+                // // { "src": "./Assets/Posters/thumb02.jpg", "size": "small" },
                 { "src": "./Assets/Posters/thumb03.jpg", "size": "small" },
                 { "src": "./Assets/Posters/thumb07.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/trade5.jpg", "size": "medium" },
@@ -227,10 +228,8 @@
             { "src": "./Assets/Posters/thumb08.jpg", "size": "small" },
             { "src": "./Assets/Posters/escaping plan.jpg", "size": "small" },
             
-            { "src": "./Assets/Posters/thumb04.jpg", "size": "small" },
-            
-            
-            
+            // { "src": "./Assets/Posters/thumb04.jpg", "size": "small" },
+               
             
             { "src": "./Assets/Thumbnails/clown.png", "size": "medium" },
             { "src": "./Assets/Posters/serial killer 3.jpg", "size": "small" },
@@ -252,16 +251,14 @@
                 { "src": "./Assets/Thumbnails/trump.png", "size": "medium" },
                 { "src": "./Assets/Posters/Crime1.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/Accept everything just the way it is.png", "size": "medium" },
-                { "src": "./Assets/Posters/Crime2.jpg", "size": "small" },
+                { "src": "./Assets/Posters/Crime2.jpg", "size": "small" },  
                 { "src": "./Assets/Thumbnails/newsstyle.png", "size": "medium" },
                 { "src": "./Assets/Posters/Beyond the Ordinary A Journey of Awakening..png", "size": "small" },
                 { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
                 { "src": "./Assets/Posters/Crime3.jpg", "size": "small" },
                 { "src": "./Assets/Posters/serial killer 4.jpg", "size": "small" },
                 { "src": "./Assets/Posters/escaping plan.jpg", "size": "small" },
-                { "src": "./Assets/Posters/strange fish.jpg", "size": "small" },
-                
-                   
+                { "src": "./Assets/Posters/strange fish.jpg", "size": "small" },    
             ],
 
             "banners": []
@@ -316,7 +313,7 @@
                 modalImg.style.width = imgWidth + "px";
                 modalImg.style.height = imgHeight + "px";
             }
-        }
+            }
 
         // Close the modal when clicking outside the image or on the close button
         var modal = document.getElementById("myModal");
@@ -348,15 +345,15 @@
         document.getElementById('showShortforms').addEventListener('click', function () {
             showContent('shortformsContent');
         });
-
-        function showContent(contentId) {
+            
+         function showContent(contentId) {
             var contents = document.getElementsByClassName('content');
             for (var i = 0; i < contents.length; i++) {
                 contents[i].classList.remove('active');
             }
             document.getElementById(contentId).classList.add('active');
         }
-
+    
         // Initialize the default view
         showContent('thumbnailsContent');
         createImageTable(imageData.thumbnails);
