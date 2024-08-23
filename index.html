@@ -5,141 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VnCreations</title>
-    <link rel="icon" href="./Assets/profiles/favicon.ico" type="image/x-i
-    
-    con">
+    <link rel="icon" href="./Assets/profiles/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css">
-   
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>  
-    <!-- profile section -->
-
+<body>
     <div class="main-body">
-
-        
+        <!-- Profile Section -->
         <div class="profile-section">
-            <img src="./Assets/profiles/profilepic.png" alt="Profile Picture" class="profile-pic">
-            <div class="profile-bio">
-                <span id="bio-name" style="font-size: 24px; font-weight: bolder;"> Vineeth Vijayan</span>
+           
 
-
-                <p class="profile-bio"> Passionate and creative
-                    <span class="highlight">Video Editor</span> ,
-                    <span class="highlight"> Thumbnail Creator </span>
-                    and <span class="highlight">Youtube Growth
-                        Analyst </span>, dedicated to crafting engaging visual content.
-                    eager to help channels and brands thrive with fresh insights.
-                    Ready to bring innovative ideas and a keen eye for detail to your projects.
-                </p>
-                
-            </div>      
-            <div class="profile-skills">    
-                <span class="skill-tag">Davinci Resolve</span>
-                <span class="skill-tag">Fution</span>
-                <span class="skill-tag">Photoshop</span>
-                <span class="skill-tag">motion Graphics</span>
-                    
-            </div>
-
-                <div class="contact-info">
-                <div class="email">
-                    <img src="./Assets/profiles/email.png" alt="Gmail Icon" class="icon">
-                    <span>editsbyvineeth@gmail.com</span>                               
+            <div class="bio_section">
+                <div class="bioPic_div">
+                    <img src="./Assets/profiles/bio_picc.jpeg" class="bio_pic" />
                 </div>
-                <div class="discord">
-                    <img src="./Assets/profiles/discord.png" alt="Discord Icon" class="icon">
-                    <span>ethen2408</span>
-                    
+            
+                <div class="bio_content">
+                    <div id="portfolio_title">
+                        <div class="first_name">Vineeth</div>
+                        <div class="last_name">Creations</div>
+                    </div>
+                    <div id="portfolio_Desc">
+                        Hi there! I'm Vineeth Vijayan a passionate designer. 
+                        I specialize in crafting visually stunning products,thumbnails,
+                         and videos. With a keen eye for detail and a love for storytelling,
+                         I bring concepts to life through innovative design solutions.
+                    </div>
                 </div>
             </div>
 
-
-
+       
         </div>
-        <!-- --------------- profile section-------------- -->
+        <!-- End Profile Section -->
 
-        <div class="Skills-section">
+        <div class="skills-section">
             <h2>Skills and Services</h2>
             <div class="services tags">
                 <div>Video Editing</div>
                 <div>Long-form Videos</div>
-                <div>Short-Form videos</div>
+                <div>Short-form Videos</div>
                 <div>Color Correction</div>
-                <div> Finance & Realestate Ads</div>
-                <div> Documentary Videos</div>
-                <div> Thumbnails </div>
-
+                <div>Finance & Real Estate Ads</div>
+                <div>Documentary Videos</div>
+                <div>Thumbnails</div>
             </div>
         </div>
-
-
-
-
-        <!--------------------------------- HOBBIES ----------------------- -->
-
 
         <div class="hobbies-section">
             <h2>Softwares</h2>
-            <div class="hobbies-icons">
-                <img src="./Assets/profiles/1.png" alt="Spotify" class="hobby-icon">
-                <img src="./Assets/profiles/montage.png" alt="Cinema" class="hobby-icon">
-                <img src="./Assets/profiles/2.png" alt="Hobby 3" class="hobby-icon">
-                <img src="./Assets/profiles/3.png" alt="Hobby 4" class="hobby-icon">
-                <img src="./Assets/profiles/4.png" alt="Hobby 5" class="hobby-icon">
+            <div class="imagebox">
+              <img  class="setup_pic"/>
             </div>
         </div>
 
-
-
-        <!--------------------------------- HOBBIES ----------------------- -->
-
-
-
-        <!---------------- navbar ------------------>
-
-        <div class="nav-bar">   
+        <div class="nav-bar">
             <button id="showThumbnails">Thumbnails</button>
             <button id="showVideos">Videos</button>
             <button id="showShortforms">Shortforms</button>
         </div>
 
-        <!--  ---------------------- -->
-
-
         <div id="thumbnailsContent" class="content active">
             <div class="container">
                 <h1>Thumbnails Gallery</h1>
-                
                 <table id="galleryTable">
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item 2</td>
-                    </tr>
-
-                    <tr>
-                        <td>Item 3</td>
-                        <td>Item 4</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
+                   
                 </table>
             </div>
         </div>
 
-
-        <!-------------------------  -->
-
         <div id="videosContent" class="content">
             <div class="container">
                 <h1>Videos</h1>
-                <p> This section temporarily not available , sorry for your inconvience</p>
+                <p style="color: red;">This section temporarily not available, sorry for your inconvenience.</p>
             </div>
         </div>
-         
+
         <div id="shortformsContent" class="content">
             <div class="container">
                 <h1>Shortforms</h1>
-                <p> This section temporarily not available, sorry for your inconvience </p>
+                <p style="color:red;">This section temporarily not available, sorry for your inconvenience.</p>
             </div>
         </div>
 
@@ -149,17 +97,14 @@
             <img class="modal-content" id="img01">
         </div>
 
-
-        
         <div class="contact">
-            <h2>Contact</h2>
+            <h1>Contact</h1>
             <div class="contact-message">
                 Let's get in touch!
                 Thank you for the visit! Feel free to contact me regarding
-                any kind of jobs,collaborations or if you just want to say hello.
+                any kind of jobs, collaborations or if you just want to say hello.
                 Find me on Discord or Gmail.
-            </div>      
-
+            </div>
             <div class="contact-info">
                 <div class="email">
                     <img src="./Assets/profiles/email.png" alt="Gmail Icon" class="icon">
@@ -170,193 +115,103 @@
                     <span>ethen2408</span>
                 </div>
             </div>
-            
         </div>
-
     </div>
 
     <script>
+  
 
-        //  Responsive navbar 
-
-        window.addEventListener('scroll', function () {
-            var navbar = document.querySelector('.nav-bar');
-            var profileSection = document.querySelector('.profile-section');
-            var profileSectionHeight = profileSection.getBoundingClientRect().height;
-
-            if (window.scrollY >= profileSectionHeight - (window.innerHeight * 0.001)) {
-                navbar.classList.add('fixed-nav');
-            } else {
-                navbar.classList.remove('fixed-nav');
-            }
-        });
-        
-        //  Responsive navbar 
-        
         var imageData = {
             "thumbnails": [
-
-
                 { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_01 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_03 copy.png", "size": "medium" },
-                // { "src": "./Assets/Posters/thumb05.jpg", "size": "small" },
-                // { "src": "./Assets/Thumbnails/trade1.jpg", "size": "medium" },
-                // { "src": "./Assets/Thumbnails/trade2.jpg", "size": "medium" },
-                // { "src": "./Assets/Thumbnails/trade3.jpg", "size": "medium" },
-                // { "src": "./Assets/Posters/thumb06.jpg", "size": "small" },
-                // { "src": "./Assets/Thumbnails/trade4.jpg", "size": "medium" },
-                // { "src": "./Assets/Thumbnails/trade7.jpg", "size": "medium" },
-                
-                // { "src": "./Assets/Posters/thumb01.jpg", "size": "small" },
-                // // { "src": "./Assets/Posters/thumb02.jpg", "size": "small" },
                 { "src": "./Assets/Posters/thumb03.jpg", "size": "small" },
                 { "src": "./Assets/Posters/thumb07.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/trade5.jpg", "size": "medium" },
                 { "src": "./Assets/Thumbnails/trade6.jpg", "size": "medium" },
-           
-            // { "src": "./Assets/Posters/thumb09.jpg", "size": "small" },
-            
-            
-            // --------------------------------------------------------------------
-            { "src": "./Assets/Posters/serial killer 1.jpg", "size": "small" },
-            { "src": "./Assets/Posters/serial killer 2.jpg", "size": "small" },
-            { "src": "./Assets/Posters/Crime4.jpg", "size": "small" },
-            { "src": "./Assets/Posters/new exhaust.jpg", "size": "small" },
-            { "src": "./Assets/Posters/horrors of unit 731.jpg", "size": "small" },
-            { "src": "./Assets/Posters/human parachute.jpg", "size": "small" },
-            { "src": "./Assets/Posters/smashing fruit.jpg", "size": "small" },
-            { "src": "./Assets/Posters/thumb08.jpg", "size": "small" },
-            { "src": "./Assets/Posters/escaping plan.jpg", "size": "small" },
-            
-            // { "src": "./Assets/Posters/thumb04.jpg", "size": "small" },
-               
-            
-            { "src": "./Assets/Thumbnails/clown.png", "size": "medium" },
-            { "src": "./Assets/Posters/serial killer 3.jpg", "size": "small" },
-            { "src": "./Assets/Thumbnails/businessman.png", "size": "medium" },
-            { "src": "./Assets/Thumbnails/3.png", "size": "medium" },
-            { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
-            { "src": "./Assets/Thumbnails/2.png", "size": "medium" },
-            { "src": "./Assets/Thumbnails/BOREDOM (1).png", "size": "medium" },
-            { "src": "./Assets/Thumbnails/will you survive (1).png", "size": "medium" },
+                { "src": "./Assets/Posters/serial killer 1.jpg", "size": "small" },
+                { "src": "./Assets/Posters/serial killer 2.jpg", "size": "small" },
+                { "src": "./Assets/Posters/Crime4.jpg", "size": "small" },
+                { "src": "./Assets/Posters/new exhaust.jpg", "size": "small" },
+                { "src": "./Assets/Posters/horrors of unit 731.jpg", "size": "small" },
+                { "src": "./Assets/Posters/human parachute.jpg", "size": "small" },
+                { "src": "./Assets/Posters/smashing fruit.jpg", "size": "small" },
+                { "src": "./Assets/Posters/thumb08.jpg", "size": "small" },
+                { "src": "./Assets/Posters/escaping plan.jpg", "size": "small" },
+                { "src": "./Assets/Thumbnails/clown.png", "size": "medium" },
+                { "src": "./Assets/Posters/serial killer 3.jpg", "size": "small" },
+                { "src": "./Assets/Thumbnails/businessman.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/3.png", "size": "medium" },
+                { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
+                { "src": "./Assets/Thumbnails/2.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/BOREDOM (1).png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/will you survive (1).png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/dreams.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/will you survive.png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/Antartica_travel.png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/gazaattack.png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/biden.jpg", "size": "medium" },
-                { "src": "./Assets/Thumbnails/HAUNTED (1).png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/mindset (1).png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/1.png", "size": "small" },
-                { "src": "./Assets/Thumbnails/dgsggsd.png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/trump.png", "size": "medium" },
-                { "src": "./Assets/Posters/Crime1.jpg", "size": "small" },
-                { "src": "./Assets/Thumbnails/Accept everything just the way it is.png", "size": "medium" },
-                { "src": "./Assets/Posters/Crime2.jpg", "size": "small" },  
-                { "src": "./Assets/Thumbnails/newsstyle.png", "size": "medium" },
-                { "src": "./Assets/Posters/Beyond the Ordinary A Journey of Awakening..png", "size": "small" },
-                { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
-                { "src": "./Assets/Posters/Crime3.jpg", "size": "small" },
-                { "src": "./Assets/Posters/serial killer 4.jpg", "size": "small" },
-                { "src": "./Assets/Posters/escaping plan.jpg", "size": "small" },
-                { "src": "./Assets/Posters/strange fish.jpg", "size": "small" },    
-            ],
-
-            "banners": []
+                { "src": "./Assets/Posters/ASL.jpg", "size": "small" }
+            ]
         };
 
-        function createImageTable(images) {
-            var table = document.getElementById('galleryTable');
-            table.innerHTML = '';  // Clear the table before adding new images
-            var rows = Math.ceil(images.length / 3);
-            var counter = 0;
+        var showThumbnailsButton = document.getElementById("showThumbnails");
+        var showVideosButton = document.getElementById("showVideos");
+        var showShortformsButton = document.getElementById("showShortforms");
 
-            for (var i = 0; i < rows; i++) {
-                var row = table.insertRow();
+        var thumbnailsContent = document.getElementById("thumbnailsContent");
+        var videosContent = document.getElementById("videosContent");
+        var shortformsContent = document.getElementById("shortformsContent");
 
-                for (var j = 0; j < 4; j++) {
-                    if (counter >= images.length) break;
+        function showContent(content) {
+            thumbnailsContent.classList.remove("active");
+            videosContent.classList.remove("active");
+            shortformsContent.classList.remove("active");
 
-                    var cell = row.insertCell();
-                    var img = document.createElement('img');
-                    img.src = images[counter].src;
-                    img.alt = images[counter].size;
-                    img.addEventListener('click', function () {
-                        var modal = document.getElementById("myModal");
-                        var modalImg = document.getElementById("img01"); 
-                        modal.style.display = "block";
-                        modalImg.src = this.src;
-                        adjustModalImageSize(modalImg);
-                    });
-                    cell.appendChild(img);
-
-                    counter++;
-                }
-            }
+            content.classList.add("active");
         }
 
-        function adjustModalImageSize(modalImg) {
-            var modal = document.getElementById("myModal");
-            var windowWidth = window.innerWidth;
-            var windowHeight = window.innerHeight;
+        showThumbnailsButton.addEventListener("click", function () {
+            showContent(thumbnailsContent);
+        });
 
-            var imgWidth = modalImg.naturalWidth;
-            var imgHeight = modalImg.naturalHeight;
+        showVideosButton.addEventListener("click", function () {
+            showContent(videosContent);
+        });
 
-            if (imgWidth > windowWidth * 0.9) {
-                modalImg.style.width = windowWidth * 0.9 + "px";
-                modalImg.style.height = "auto";
-            } else if (imgHeight > windowHeight * 0.7) {
-                modalImg.style.height = windowHeight * 0.7 + "px";
-                modalImg.style.width = "auto";
+        showShortformsButton.addEventListener("click", function () {
+            showContent(shortformsContent);
+        });
 
-            } else {
-                modalImg.style.width = imgWidth + "px";
-                modalImg.style.height = imgHeight + "px";
-            }
-            }
-
-        // Close the modal when clicking outside the image or on the close button
+        // Modal functionality
         var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("close")[0];
-        modal.addEventListener('click', function (event) {
-            if (event.target === modal || event.target === span) {
-                modal.style.display = "none";
-            }
-        });
+        var modalImg = document.getElementById("img01");
+        var closeModal = document.getElementsByClassName("close")[0];
 
-        // Adjust modal image size on window resize
-        window.addEventListener('resize', function () {
-            var modalImg = document.getElementById("img01");
-            if (modal.style.display === "block") {
-                adjustModalImageSize(modalImg);
-            }
-        });
-
-        // Tab functionality
-        document.getElementById('showThumbnails').addEventListener('click', function () {
-            showContent('thumbnailsContent');
-            createImageTable(imageData.thumbnails);
-        });
-
-        document.getElementById('showVideos').addEventListener('click', function () {
-            showContent('videosContent');
-        });
-
-        document.getElementById('showShortforms').addEventListener('click', function () {
-            showContent('shortformsContent');
-        });
-            
-         function showContent(contentId) {
-            var contents = document.getElementsByClassName('content');
-            for (var i = 0; i < contents.length; i++) {
-                contents[i].classList.remove('active');
-            }
-            document.getElementById(contentId).classList.add('active');
+        function showModal(imageSrc) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
         }
-    
-        // Initialize the default view
-        showContent('thumbnailsContent');
-        createImageTable(imageData.thumbnails);
+
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Generate thumbnail images
+        function generateThumbnails() {
+            var galleryTable = document.getElementById("galleryTable");
+            imageData.thumbnails.forEach(function (image) {
+                var img = document.createElement("img");
+                img.src = image.src;
+                img.className = image.size === "medium" ? "medium-thumbnail" : "small-thumbnail";
+                img.onclick = function () {
+                    showModal(image.src);
+                };
+
+                var cell = document.createElement("td");
+                cell.appendChild(img);
+                galleryTable.appendChild(cell);
+            });
+        }
+
+        generateThumbnails();
     </script>
 </body>
 
