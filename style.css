@@ -115,18 +115,6 @@ h1 {
 }
 
 
-
-
-
-
-/* --------------profile Bio---------- */
-
-
-
-
-/* ---------------------------------------- */
-
-
 .modal {
     display: none;
     position: fixed;
@@ -279,6 +267,9 @@ h1 {
 
 .imagebox{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 500px; /* Adjust height as needed */
     background-image: url('./Assets/profiles/desk setup.png');
@@ -295,24 +286,30 @@ h1 {
 
 .setup_pic{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background-attachment: fixed;
+    z-index: -1;
+    border: 2px transparent;
     /* object-fit: cover;     */
 }
 
-.hobby-icon {
-width: 60px;
-height: 60px;
-border-radius: 50%;
-object-fit:cover;
-transition: transform 0.2s, box-shadow 0.2s;
-display: block; /* Ensure it's treated as a block element */
+.icon_box{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 12%;
 }
 
+.icon{
+    width: 12%;
+    object-fit: cover;
+     transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 
-.hobby-icon:hover {
+.icon:hover{
     transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -347,7 +344,7 @@ display: block; /* Ensure it's treated as a block element */
 
 .services div{
     background-color: #dbd7d7;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 12px;
     padding: 8px;
     color: #333;
