@@ -449,6 +449,7 @@ h1 {
     #portfolio_Desc{
         width: 100%;
         padding: 0;
+        text-align: left;
     }
 
     #portfolio_title{
