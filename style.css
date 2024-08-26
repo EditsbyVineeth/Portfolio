@@ -261,6 +261,7 @@ h1 {
    justify-content: center;
    flex-direction: column;
    margin-top: 40px;
+   overflow-x: hidden;
    font-size: 3vw;
 }
 
