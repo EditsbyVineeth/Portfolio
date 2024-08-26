@@ -297,6 +297,7 @@ h1 {
     width: 90%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     margin-top: 12%;
@@ -442,7 +443,7 @@ h1 {
         flex-direction: column-reverse;
     }
 .bio_content{
-    width:80%;
+    width:90%;
     text-align: center;
 }
 
@@ -513,6 +514,9 @@ h1 {
     }
     .bioPic_div{
         height: 250px; 
+    }
+    .icon_box{
+        gap: 8px;
     }
    
 }
