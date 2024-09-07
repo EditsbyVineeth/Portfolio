@@ -535,11 +535,12 @@ h1 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+    /* box-shadow: 0 0px 32px 11px rgb(97, 96, 96); */
 }
 
 #thumbnailsContent{
-    width: 100%;
+    width: 90%;
 }
 
 
@@ -571,13 +572,15 @@ td{
 }
 
 .medium-thumbnail,.small-thumbnail {
-    width: 90%;
+    width: 100%;
     height: auto;
+    border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid ;
 }
 
 .medium-thumbnail:hover,.small-thumbnail:hover{
-    transform: scale(1.2);
+    transform: scale(1.02);
 }
 
 /* Media query for responsive design */
