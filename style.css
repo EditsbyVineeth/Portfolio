@@ -67,14 +67,18 @@ h1 {
 }
 
 .bioPic_div{
-    height: 400px; 
+    height: 360px; 
     border: 2px solid transparent ;
-    /* box-shadow: 0 0 0 2px black; */
-}
+   }
 .bio_pic{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border:12px solid whitesmoke;
+    rotate: -4deg;
+    filter: blur(0.4px);
+    transform: translateX(10px);
+    /* filter:  saturate(120%) contrast(110%); */
 }
 
 .bio_content{
@@ -600,7 +604,7 @@ td{
     .medium-thumbnail, .small-thumbnail {
         width: 90%;
     }
-}
+}                                                                                                                                  
 
 @media (min-width: 769px) {
     #galleryTable td {
