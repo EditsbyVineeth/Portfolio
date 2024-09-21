@@ -64,9 +64,9 @@
                 <img src="./Assets/profiles/1.png" class="icon" data-speed="1"/>
                 <img src="./Assets/profiles/3.png" class="icon" data-speed="1.4"/>
                 <img src="./Assets/profiles/4.png" class="icon" data-speed="3"/>
-                <img src="./Assets/profiles/5.png" class="icon" data-speed="1.5"/>
                 <img src="./Assets/profiles/7.png" class="icon" data-speed="2"/>
                 <img src="./Assets/profiles/6.png" class="icon" data-speed="1"/>
+                <img src="./Assets/profiles/5.png" class="icon" data-speed="1.5"/>
                 <img src="./Assets/profiles/2.png" class="icon" data-speed="2"/>
                </div>              
             </div>
@@ -87,10 +87,10 @@
             </div>
         </div>
 
-        <div id="videosContent" class="content">
+        <div id="videosContent">
             <div class="container">
-                <h1>Product Mockups</h1>
-                <p style="color: red;">This section temporarily not available, sorry for your inconvenience.</p>
+                <h1>Logos</h1>
+                <div class="image-container" id="productMockups"></div> 
             </div>
         </div>
 
@@ -132,6 +132,14 @@
   
 
         var imageData = {
+
+            "productMockups": [
+        { "src": "./Assets/ProductMockups/1.png", "height": "300px", "width": "400px" },
+        { "src": "./Assets/ProductMockups/2.png", "height": "350px", "width": "450px" },
+        { "src": "./Assets/ProductMockups/3.png", "height": "320px", "width": "420px" },
+        
+    ],
+    
             "thumbnails": [
                 { "src": "./Assets/Thumbnails/Realestate01 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Finance1 copy.png", "size": "medium" },
@@ -156,24 +164,19 @@
                 { "src": "./Assets/Thumbnails/Sample02.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/youtubestrategy.jpg", "size": "medium" },
                 { "src": "./Assets/Thumbnails/trading1.jpg", "size": "medium" },
-                // { "src": "./Assets/Posters/thumb03.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/JDvance_Dinner01 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/FaceFilter copy.png", "size": "small" },
-                { "src": "./Assets/Posters/serial killer 2.jpg", "size": "small" },
-                { "src": "./Assets/Posters/Crime4.jpg", "size": "small" },
                 { "src": "./Assets/Posters/horrors of unit 731.jpg", "size": "small" },
-                { "src": "./Assets/Posters/escaping plan.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/clown.png", "size": "medium" },
                 { "src": "./Assets/Posters/serial killer 3.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/businessman.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/3.png", "size": "medium" },
-                { "src": "./Assets/Posters/Tokyo.png", "size": "small" },
                 { "src": "./Assets/Thumbnails/2.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/BOREDOM (1).png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/will you survive (1).png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/dreams.png", "size": "medium" },
-                { "src": "./Assets/Posters/Disappear01 copy.png", "size": "small" },
-                { "src": "./Assets/Thumbnails/will you survive.png", "size": "medium" },
+                { "src": "./Assets/Posters/Crime3.jpg", "size": "small" },
+                { "src": "./Assets/Posters/serial killer 2.jpg", "size": "small" },
+                { "src": "./Assets/Posters/Crime4.jpg", "size": "small" },
             ]
         };
 
@@ -187,10 +190,7 @@
 
         // -------------------------------
 
-         // -------------------------------
-
-
-        
+            
         function showContent(content) {
             thumbnailsContent.classList.remove("active");
             videosContent.classList.remove("active");
@@ -242,6 +242,23 @@
             });
         }
 
+        function generateProductMockups() {
+        var mockupsContent = document.getElementById("productMockups");
+
+        imageData.productMockups.forEach(function (image) {
+            var img = document.createElement("img");
+            img.src = image.src;
+            img.style.height = image.height; // Set height
+            img.style.width = image.width; // Set width
+            img.onclick = function () {
+                showModal(image.src);
+            };
+
+            mockupsContent.appendChild(img); // Append image directly to the container
+        });
+    }
+
+        generateProductMockups() 
         generateThumbnails();
     </script>
 </body>

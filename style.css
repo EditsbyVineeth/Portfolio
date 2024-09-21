@@ -400,6 +400,28 @@ h1 {
     opacity: 80%;
 }
 
+/* ---------------------section for Logos --------------------- */
+
+
+.image-container {
+    display: flex; /* Enable flexbox */
+    flex-wrap: wrap; /* Allow wrapping of images */
+    justify-content: center; /* Center align images */
+    gap: 10px; /* Space between images */
+    margin: 20px; /* Margin around the container */
+}
+
+.image-container img {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure images are responsive */
+    flex: 1 1 300px; /* Allow images to grow and shrink with a base width */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add some shadow for better visibility */
+}
+
+
+
+/* ---------------------section for Logos --------------------- */
+
 
 
 
@@ -540,7 +562,7 @@ h1 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
     /* box-shadow: 0 0px 32px 11px rgb(97, 96, 96); */
 }
 
@@ -592,12 +614,12 @@ td{
 @media (max-width: 830px) {
     #galleryTable {
         display: block;
-        gap: 10px;
+        gap: 2px;
         
         }
     
     #galleryTable td{
-        width: 48%; /* Use 48% width to have two columns */
+             width: 100%; /* Use 48% width to have two columns */
         display: inline-block; /* Display cells inline */
         box-sizing: border-box; /* Ensure padding is included in width */
     }
@@ -609,6 +631,6 @@ td{
 
 @media (min-width: 769px) {
     #galleryTable td {
-        width: 70%; /* Each cell takes half the width for larger screens */
+        width: 80%; /* Each cell takes half the width for larger screens */
     }
 }
