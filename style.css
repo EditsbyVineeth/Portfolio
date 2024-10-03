@@ -75,8 +75,8 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border:12px solid whitesmoke;
-    rotate: -4deg;
+    border:4px solid white ;
+    /* rotate: -4deg; */
     filter: blur(0.4px);
     transform: translateX(10px);
     /* filter:  saturate(120%) contrast(110%); */
