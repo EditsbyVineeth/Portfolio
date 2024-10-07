@@ -69,13 +69,14 @@ h1 {
 .bioPic_div{
     height: 360px; 
     border: 2px solid transparent ;
-   
+    
 }
 .bio_pic{
-    width: 100%;
-    height: 100%;
+    width:99%;
+    height:99%;
     object-fit: cover;
-    border:4px solid white ;
+    border:6px solid rgb(34, 33, 33) ;
+    border-radius: 360px;
     /* rotate: -4deg; */
     filter: blur(0.4px);
     transform: translateX(10px);
