@@ -14,7 +14,7 @@ body {
 }
 
 h1{
-    font-size: 5vw;
+    font-size: 4vw;
 }
 
 .main-body {
@@ -181,7 +181,8 @@ h1 {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 22px;
+    font-size: 18px;
+    font-weight:bolder;
     cursor: pointer;
     margin: 2px 2px;
     transition: transform 0.3s ease-in;
@@ -498,7 +499,7 @@ h1 {
     }
 
     .nav-bar button{
-        font-size: 16px;
+        font-size: 12px;
         padding: 15px;
     }
 
@@ -528,7 +529,7 @@ h1 {
     }
 
     h1{
-        font-size: 8vw;
+        font-size: 6vw;
     }
     .services{
         font-size: 16px;
