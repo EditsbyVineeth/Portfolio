@@ -369,7 +369,7 @@ h1 {
 }
 
 .skills-section{
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
@@ -378,15 +378,15 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .services div{
-    background-color: #dbd7d7;
+    background-color: #0a0808;
     /* border: 1px solid #ccc; */
     border-radius: 12px;
     padding: 8px;
-    color: #333;
+    color: #ffffff;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -395,6 +395,7 @@ h1 {
 .services div:hover {
     background-color: #ddd;
     border-color: #bbb;
+    color:#0a0808;
     transform: scale(1.02);
 }
 
