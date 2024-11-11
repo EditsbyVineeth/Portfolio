@@ -582,24 +582,29 @@ h1 {
 
 #galleryTable{
     /* background-color: yellow; */
-    width: 95%;
+    /* width: 95%; */
+    /* background-color: rgb(70, 70, 72); */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5px;
+    /* gap: 5%; */
     /* box-shadow: 0 0px 32px 11px rgb(97, 96, 96); */
 }
 
 #thumbnailsContent{
-    width: 90%;
+    width: 99%;
+    /* background-color: blueviolet; */
 }
 
 
 td{
-    width: 60%;
+    width: 100%;
+/* border-color: #cad3f2; */
+/* border: 2px solid #cad3f2; */
+    border-radius: 2px;
     height: auto;
-    margin: 20px auto; 
+    /* margin: 20px auto;  */
     /* background: #f90808; */
     display:  flex;
     flex-direction: column;
@@ -613,8 +618,8 @@ td{
  td{
     margin: 1px;
     /* max-width:100px; */
-    /* padding: 0; */
-    max-width: 400px;
+    padding:4px;
+    max-width: 550px;
 } 
 
 #galleryTable{
@@ -626,6 +631,8 @@ td{
 .medium-thumbnail,.small-thumbnail {
     width: 100%;
     height: auto;
+    margin-bottom: 1vh;
+    /* margin-right: 4vw; */
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* border: 1px solid  ; */
@@ -650,7 +657,7 @@ td{
     }
 
     .medium-thumbnail, .small-thumbnail {
-        width: 90%;
+        width: 80%;
     }
 }                                                                                                                                  
 
