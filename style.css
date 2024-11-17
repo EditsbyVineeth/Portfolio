@@ -143,7 +143,7 @@ h1 {
 }
 
 
-.modal {
+/* .modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -178,7 +178,7 @@ h1 {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-}
+} */
 
 .nav-bar {
     display: flex;
@@ -583,7 +583,8 @@ h1 {
 #galleryTable{
     /* background-color: yellow; */
     /* width: 95%; */
-    /* background-color: rgb(70, 70, 72); */
+    /* background-color: rgb(70, 70, 72);
+    */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -593,7 +594,7 @@ h1 {
 }
 
 #thumbnailsContent{
-    width: 99%;
+    width: 90%;
     /* background-color: blueviolet; */
 }
 
@@ -629,11 +630,11 @@ td{
 }
 
 .medium-thumbnail,.small-thumbnail {
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-bottom: 1vh;
     /* margin-right: 4vw; */
-    border-radius: 12px;
+    border-radius: 2px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* border: 1px solid  ; */
 }
