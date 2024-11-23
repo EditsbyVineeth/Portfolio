@@ -228,10 +228,10 @@
         var modalImg = document.getElementById("img01");
         var closeModal = document.getElementsByClassName("close")[0];
 
-        function showModal(imageSrc) {
-            modal.style.display = "block";
-            modalImg.src = imageSrc;
-        }
+        // function showModal(imageSrc) {
+        //     modal.style.display = "block";
+        //     modalImg.src = imageSrc;
+        // }
 
         closeModal.onclick = function () {
             modal.style.display = "none";
@@ -247,9 +247,9 @@
                 var img = document.createElement("img");
                 img.src = image.src;
                 img.className = image.size === "medium" ? "medium-thumbnail" : "small-thumbnail";
-                img.onclick = function () {
-                    showModal(image.src);
-                };
+                // img.onclick = function () {
+                //     showModal(image.src);
+                // };
 
                 var cell = document.createElement("td");
                 cell.appendChild(img);
