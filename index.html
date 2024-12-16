@@ -138,28 +138,35 @@
     ],  
     
             "thumbnails": [ 
-                { "src": "./Assets/Posters/Magnus_fina.jpeg", "size": "small" },
-                { "src": "./Assets/Posters/GEORGECLONNEY.jpg", "size": "small" },
+                { "src": "./Assets/Posters/reaction4.jpg", "size": "small" },
                 { "src": "./Assets/Posters/TheStyleOG_RedesignedThumbnai.jpeg", "size": "small" },
+                { "src": "./Assets/Posters/reaction5.jpg", "size": "small" },
+                { "src": "./Assets/Posters/Magnus_fina.jpeg", "size": "small" },
                 { "src": "./Assets/Posters/papi Eng thumbnail.jpeg", "size": "small" },
                 { "src": "./Assets/Posters/perfumerism.jpeg", "size": "small" },
                 { "src": "./Assets/Posters/Eaudericacop.jpeg", "size": "small" },
+                { "src": "./Assets/Posters/reaction1.jpg", "size": "small" },
+                { "src": "./Assets/Posters/reaction2.jpg", "size": "small" },
+                // { "src": "./Assets/Posters/reaction3.jpg", "size": "small" },
                 // { "src": "./Assets/Posters/Robert01cop.jpeg", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Finance1 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/FinanceThumb01cop.jpeg", "size": "medium" },
                 { "src": "./Assets/Posters/Jason Tatum.jpeg", "size": "medium" },
+                { "src": "./Assets/Posters/GEORGECLONNEY.jpg", "size": "small" },
                 { "src": "./Assets/Thumbnails/chef_01.jpeg", "size": "small" },
                 { "src": "./Assets/Posters/mark Zukerber01.jpeg", "size": "medium" },
-                { "src": "./Assets/Posters/crypto 01.jpeg", "size": "small" },
+                // { "src": "./Assets/Posters/crypto 01.jpeg", "size": "small" },
                 { "src": "./Assets/Thumbnails/KenyaWest_Reveals01 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/How to generate_Leads02.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Lead generation.jpeg", "size": "medium" },
+                { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_03 copy.png", "size": "medium" },
+                { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_06 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Sample01.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/50Cent04 Vitamin Water.png", "size": "medium" },
                 { "src": "./Assets/Posters/issacStyle.png", "size": "small" },
                 { "src": "./Assets/Posters/Discordpedocop.jpeg", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Ryan 02.png", "size": "medium" },
-                { "src": "./Assets/Posters/Growmoney02cop.jpeg", "size": "small" },
+                // { "src": "./Assets/Posters/Growmoney02cop.jpeg", "size": "small" },
                 { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_01 copy.png", "size": "medium" },
                 
                 // { "src": "./Assets/Thumbnails/DiddyReacts01cop.jpeg", "size": "medium" },
@@ -174,13 +181,11 @@
                 { "src": "./Assets/Posters/trump wins.jpeg", "size": "small" },
                 { "src": "./Assets/Thumbnails/JDvance_Dinner01 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/trump.png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_03 copy.png", "size": "medium" },
-                { "src": "./Assets/Thumbnails/Caitlin Clark NikeShoes_06 copy.png", "size": "medium" },
                 { "src": "./Assets/Thumbnails/Subscription_Problem.png", "size": "medium" },
                 { "src": "./Assets/Posters/horrors of unit 731.jpg", "size": "small" },
                 // { "src": "./Assets/Posters/serial killer 3.jpg", "size": "small" },
-                { "src": "./Assets/Posters/dailyvlog (2).jpeg", "size": "small" },
-                { "src": "./Assets/Posters/dailyvlog.jpeg", "size": "small" },
+                // { "src": "./Assets/Posters/dailyvlog (2).jpeg", "size": "small" },
+                // { "src": "./Assets/Posters/dailyvlog.jpeg", "size": "small" },
                 // { "src": "./Assets/Posters/dailyvlo.jpeg", "size": "small" },
                 // { "src": "./Assets/Posters/dailyvlog1.jpeg", "size": "small" },
 
@@ -192,6 +197,7 @@
                 { "src": "./Assets/Posters/serial killer 2.jpg", "size": "small" },
                 { "src": "./Assets/Posters/Crime4.jpg", "size": "small" },  
                 { "src": "./Assets/Posters/serial killer 1.jpg", "size": "small" },
+                
             ]
         };
 
@@ -244,7 +250,7 @@
 
             
         }
-        
+
 
         // Generate thumbnail images
         function generateThumbnails() { 
@@ -261,7 +267,9 @@
                 cell.appendChild(img);
                 galleryTable.appendChild(cell);
             });
-        }
+        }   
+
+
 
         function generateProductMockups() {
         var mockupsContent = document.getElementById("productMockups");
@@ -270,8 +278,8 @@
             var img = document.createElement("img");
             img.src = image.src;
             img.style.height = image.height; // Set height
-            img.style.width = image.width; // Set width
-            img.onclick = function () {
+            img.style.width =   image.width; // Set width
+            img.onclick = function () { 
                 showModal(image.src);
             };
 
