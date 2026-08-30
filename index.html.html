@@ -10,7 +10,6 @@
   --bg: #101018;
   --bg-alt: #16161f;
   --bg-raised: #1c1c27;
-  --bg-chrome: rgba(16,16,24,0.85);
   --text: #f2efe9;
   --text-dim: #8a8b93;
   --text-faint: #55565f;
@@ -19,19 +18,6 @@
   --line: rgba(242,239,233,0.08);
   --line-strong: rgba(242,239,233,0.16);
 }
-html[data-theme="light"] {
-  --bg: #f3e9d7;
-  --bg-alt: #ece0c9;
-  --bg-raised: #fffcf5;
-  --bg-chrome: rgba(243,233,215,0.85);
-  --text: #1a1512;
-  --text-dim: #6b5c4b;
-  --text-faint: #9c8d78;
-  --rec: #d4392a;
-  --amber: #b8720a;
-  --line: rgba(26,21,18,0.13);
-  --line-strong: rgba(26,21,18,0.24);
-}
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
@@ -39,7 +25,6 @@ body {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 ::selection { background: var(--rec); color: #fff; }
 
@@ -58,7 +43,7 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 44px;
-  background: var(--bg-chrome);
+  background: rgba(16,16,24,0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   z-index: 1000;
@@ -128,61 +113,6 @@ body {
   font-weight: 500;
   min-width: 62px;
   text-align: right;
-}
-.theme-switch-wrap {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: 4px;
-}
-.ts-icon { width: 13px; height: 13px; color: var(--text-faint); flex-shrink: 0; }
-.theme-toggle {
-  width: 38px; height: 20px;
-  border-radius: 100px;
-  border: 1px solid var(--line-strong);
-  background: var(--bg-raised);
-  position: relative;
-  cursor: pointer;
-  flex-shrink: 0;
-  padding: 0;
-}
-.theme-toggle .knob {
-  position: absolute;
-  top: 2px; left: 2px;
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--amber);
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-html[data-theme="light"] .theme-toggle .knob { transform: translateX(18px); background: var(--rec); }
-.now-playing {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 14px;
-  background: var(--bg-chrome);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  font-size: 11px;
-  letter-spacing: 1px;
-  pointer-events: none;
-}
-.now-playing .np-dot {
-  width: 7px; height: 7px;
-  background: var(--rec);
-  border-radius: 50%;
-  animation: blink 1.6s ease-in-out infinite;
-  flex-shrink: 0;
-}
-.now-playing .np-label { color: var(--text-faint); }
-.now-playing .np-value { color: var(--amber); font-weight: 600; }
-@media (max-width: 640px) {
-  .now-playing { right: 14px; bottom: 14px; padding: 7px 11px; font-size: 10px; }
 }
 .logo-mark {
   font-family: 'Bebas Neue', sans-serif;
@@ -258,56 +188,6 @@ section {
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(16,16,24,0.5) 0%, rgba(16,16,24,0.55) 40%, rgba(16,16,24,0.97) 92%);
   z-index: 1;
-}
-.hero-parallax-text {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  overflow: hidden;
-}
-.hero-parallax-text span {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(80px, 16vw, 240px);
-  line-height: 0.85;
-  text-align: center;
-  -webkit-text-stroke: 1px rgba(242,239,233,0.06);
-  color: transparent;
-  white-space: nowrap;
-  will-change: transform;
-}
-.hero-floats {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.hero-float {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  background: rgba(16,16,24,0.55);
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--text-faint);
-  will-change: transform;
-  transition: transform 0.3s ease-out;
-}
-.hero-float .fl-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rec); flex-shrink: 0; }
-.hero-float.f1 { top: 22%; left: 10%; }
-.hero-float.f2 { top: 58%; right: 12%; }
-.hero-float.f3 { top: 78%; left: 22%; }
-@media (max-width: 860px) {
-  .hero-parallax-text, .hero-floats { display: none; }
 }
 .hero-content { position: relative; z-index: 2; }
 .hero-eyebrow {
@@ -446,14 +326,7 @@ section {
   cursor: pointer;
   border: 1px solid var(--line);
 }
-.showreel-frame iframe {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 100%;
-  height: 131.25%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
+.showreel-frame iframe { width: 100%; height: 100%; pointer-events: none; }
 .showreel-cover {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
@@ -683,7 +556,8 @@ section {
 .lf-grid {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 640px;
+  max-width: 900px;
+  margin: 0 auto;
   gap: 24px;
 }
 .lf-card {
@@ -711,8 +585,10 @@ section {
    ═══════════════════════════════════════ */
 .mg-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
+  gap: 20px;
 }
 .mg-card {
   aspect-ratio: 1;
@@ -766,11 +642,6 @@ section {
   pointer-events: none;
 }
 .dw-card .meta .title { font-size: 20px; font-weight: 600; color: var(--text); }
-
-.sf-card, .lf-card, .mg-card, .dw-card {
-  transition: transform 0.15s ease-out;
-  will-change: transform;
-}
 
 /* ─── Design Work fullscreen preview ─── */
 .dw-lightbox {
@@ -826,10 +697,7 @@ section {
    ═══════════════════════════════════════ */
 .clients-wrap { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 40px 0; }
 .marquee { display: flex; gap: 80px; width: max-content; animation: scroll-left 28s linear infinite; }
-.marquee + .marquee { margin-top: 24px; }
 @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.marquee-reverse { animation-name: scroll-right; }
-@keyframes scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 .marquee span {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 32px;
@@ -860,12 +728,6 @@ section {
   transition: all 0.2s;
 }
 .contact-links a:hover { color: var(--bg); background: var(--text); border-color: var(--text); }
-.contact-email {
-  margin-top: 24px;
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: var(--text-faint);
-}
 
 footer {
   padding: 30px 6vw;
@@ -879,72 +741,16 @@ footer {
 }
 
 @media (max-width: 860px) {
-  .lf-grid, .mg-grid, .dw-grid { grid-template-columns: repeat(2,1fr); }
+  .dw-grid { grid-template-columns: repeat(2,1fr); }
   .frames-grid { grid-template-columns: repeat(3,1fr); grid-auto-rows: 90px;}
   .fi-1,.fi-5 { grid-column: span 3; grid-row: span 2; }
   .fi-2,.fi-3,.fi-4,.fi-6 { grid-column: span 3; grid-row: span 2; }
   .fi-7,.fi-8 { grid-column: span 3; }
   section { padding: 70px 6vw; }
 }
-
-/* ═══════════════════════════════════════
-   LIGHT THEME — extra depth & contrast
-   (dark theme untouched above)
-   ═══════════════════════════════════════ */
-html[data-theme="light"] .sf-card,
-html[data-theme="light"] .lf-card,
-html[data-theme="light"] .mg-card,
-html[data-theme="light"] .dw-card,
-html[data-theme="light"] .showreel-frame {
-  box-shadow: 0 10px 28px rgba(26,21,18,0.07);
-}
-html[data-theme="light"] .dw-card {
-  background: linear-gradient(135deg, rgba(212,57,42,0.10), rgba(184,114,10,0.12));
-}
-html[data-theme="light"] .dw-card .ph {
-  color: var(--text-dim);
-  font-weight: 600;
-}
-html[data-theme="light"] .dw-lightbox-frame:not(.gallery) {
-  background: linear-gradient(135deg, rgba(212,57,42,0.10), rgba(184,114,10,0.12));
-}
-
-/* ═══════════════════════════════════════
-   LIGHT THEME — floating background shapes
-   ═══════════════════════════════════════ */
-.bg-blob {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: -1;
-  display: none;
-  transition: transform 0.4s ease-out;
-}
-html[data-theme="light"] .bg-blob { display: block; }
-.bg-blob.b1 { width: 560px; height: 560px; top: -140px; left: -160px; background: rgba(212,57,42,0.12); }
-.bg-blob.b2 { width: 480px; height: 480px; top: 28%; right: -170px; background: rgba(184,114,10,0.13); }
-.bg-blob.b3 { width: 620px; height: 620px; bottom: -220px; left: 6%; background: rgba(212,57,42,0.10); }
-.bg-blob.b4 { width: 380px; height: 380px; bottom: 18%; right: 4%; background: rgba(184,114,10,0.12); }
-@media (max-width: 860px) {
-  .bg-blob { display: none !important; }
-}
 </style>
-<script>
-  try {
-    if (localStorage.getItem('reel-theme') === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  } catch (e) {}
-</script>
 </head>
 <body>
-
-<!-- ═══ Light theme floating background shapes (hidden in dark theme) ═══ -->
-<div class="bg-blob b1"></div>
-<div class="bg-blob b2"></div>
-<div class="bg-blob b3"></div>
-<div class="bg-blob b4"></div>
 
 <!-- ═══ SIGNATURE: Timeline Scrubber ═══ -->
 <div class="timeline-bar">
@@ -956,31 +762,14 @@ html[data-theme="light"] .bg-blob { display: block; }
     <div class="timeline-playhead" id="tlPlayhead"></div>
   </div>
   <span class="tc-total mono" id="tcTotal">02:20</span>
-  <div class="theme-switch-wrap">
-    <svg class="ts-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme"><span class="knob"></span></button>
-    <svg class="ts-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-  </div>
-</div>
-
-<div class="now-playing" id="nowPlaying">
-  <span class="np-dot"></span>
-  <span class="np-label">NOW PLAYING:</span>
-  <span class="np-value mono" id="npValue">HERO</span>
 </div>
 
 <!-- ═══ HERO ═══ -->
-<section class="hero" style="padding-top:44px;" data-section="Hero">
+<section class="hero" style="padding-top:44px;">
   <div class="hero-bg">
     <iframe src="https://player.vimeo.com/video/76979871?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen"></iframe>
   </div>
   <div class="hero-scrim"></div>
-  <div class="hero-parallax-text" id="heroParallaxText"><span>CUT. COLOR. CONVERT.</span></div>
-  <div class="hero-floats" id="heroFloats">
-    <div class="hero-float f1"><span class="fl-dot"></span>REC</div>
-    <div class="hero-float f2">00:00:00:00</div>
-    <div class="hero-float f3">▶ PLAY</div>
-  </div>
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="rec-dot"></span> AVAILABLE WORLDWIDE · BASED IN KOCHI, INDIA</div>
     <h1>VINEETH<br/><span class="outline">VIJAYAN</span></h1>
@@ -994,7 +783,7 @@ html[data-theme="light"] .bg-blob { display: block; }
 </section>
 
 <!-- ═══ SHOWREEL ═══ -->
-<section id="frames" data-section="Best Frames">
+<section id="frames">
   <div class="section-inner">
     <div class="eyebrow"><span class="tc mono">00:00:15</span><span class="label">Best Frames</span></div>
     <div class="showreel-frame" id="showreelFrame" data-vimeo-id="1222287139" data-aspect="landscape">      <iframe id="showreelIframe" data-src="https://player.vimeo.com/video/1222287139?background=1&muted=1&loop=1&dnt=1" frameborder="0" allow="autoplay; fullscreen"></iframe>
@@ -1003,7 +792,7 @@ html[data-theme="light"] .bg-blob { display: block; }
 </section>
 
 <!-- ═══ SHORT-FORM ═══ -->
-<section data-section="Short-Form Reels">
+<section>
   <div class="section-inner">
     <div class="eyebrow"><span class="tc mono">00:00:48</span><span class="label">Short-Form Reels</span></div>
     <div class="sf-scroll" id="sfScroll">
@@ -1028,7 +817,7 @@ html[data-theme="light"] .bg-blob { display: block; }
 </section>
 
 <!-- ═══ LONG-FORM ═══ -->
-<section data-section="Long-Form">
+<section>
   <div class="section-inner">
     <div class="eyebrow"><span class="tc mono">00:01:10</span><span class="label">Long-Form</span></div>
     <div class="lf-grid">
@@ -1040,7 +829,7 @@ html[data-theme="light"] .bg-blob { display: block; }
 </section>
 
 <!-- ═══ MOTION GRAPHICS ═══ -->
-<section data-section="Motion Graphics">
+<section>
   <div class="section-inner">
     <div class="eyebrow"><span class="tc mono">00:01:28</span><span class="label">Motion Graphics</span></div>
     <div class="mg-grid">
@@ -1055,7 +844,7 @@ html[data-theme="light"] .bg-blob { display: block; }
 </section>
 
 <!-- ═══ DESIGN WORK ═══ -->
-<section data-section="Design Work">
+<section>
   <div class="section-inner">
     <div class="eyebrow"><span class="tc mono">00:01:45</span><span class="label">Design Work</span></div>
     <div class="dw-grid">
@@ -1074,25 +863,20 @@ html[data-theme="light"] .bg-blob { display: block; }
 <!-- ═══ CLIENTS ═══ -->
 <div class="clients-wrap">
   <div class="marquee">
-    <span>OLIVE BUILDERS</span><span>DESAI HOMES</span><span>VISHRAM BUILDERS</span><span>AFD INDIA</span><span>THE ARK UAE</span><span>CION LIGHTING</span><span>POPEES</span>
-    <span>OLIVE BUILDERS</span><span>DESAI HOMES</span><span>VISHRAM BUILDERS</span><span>AFD INDIA</span><span>THE ARK UAE</span><span>CION LIGHTING</span><span>POPEES</span>
-  </div>
-  <div class="marquee marquee-reverse">
-    <span>PROSPRO INVESTMENTS</span><span>CDA ASSOCIATES</span><span>PASSPRO</span><span>LEMON INTERIORS</span><span>ALORA TRAVELS</span><span>BMY</span><span>GADIYAR ENGINEERING</span>
-    <span>PROSPRO INVESTMENTS</span><span>CDA ASSOCIATES</span><span>PASSPRO</span><span>LEMON INTERIORS</span><span>ALORA TRAVELS</span><span>BMY</span><span>GADIYAR ENGINEERING</span>
+    <span>OLIVE BUILDERS</span><span>UPSTAND KOCHI</span><span>THE ARK UAE</span><span>CION LIGHTING</span><span>DD DIAMOND PARK</span>
+    <span>OLIVE BUILDERS</span><span>UPSTAND KOCHI</span><span>THE ARK UAE</span><span>CION LIGHTING</span><span>DD DIAMOND PARK</span>
   </div>
 </div>
 
 <!-- ═══ CONTACT ═══ -->
-<section class="contact-section" id="contact" data-section="Contact">
+<section class="contact-section" id="contact">
   <div class="eyebrow" style="justify-content:center;"><span class="tc mono">00:02:15</span><span class="label">End Frame</span></div>
   <h2>LET'S CUT<br/>SOMETHING GREAT.</h2>
   <div class="contact-links">
-    <a href="mailto:editsbyvineeth@gmail.com?subject=Let%27s%20work%20together">EMAIL →</a>
+    <a href="#">EMAIL →</a>
     <a href="#">INSTAGRAM →</a>
-    <a href="https://wa.me/917559953725?text=Hi%20Vineeth%2C%20I%27d%20like%20to%20talk%20about%20a%20project" target="_blank" rel="noopener">WHATSAPP →</a>
+    <a href="#">WHATSAPP →</a>
   </div>
-  <div class="contact-email mono">editsbyvineeth@gmail.com</div>
 </section>
 
 <footer>
@@ -1192,85 +976,6 @@ window.addEventListener('mousemove', (e) => {
 });
 
 window.addEventListener('mouseup', () => { tlDragging = false; });
-
-// ═══ Now Playing OSD ═══
-const npValue = document.getElementById('npValue');
-const npSections = document.querySelectorAll('[data-section]');
-const npObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      npValue.textContent = entry.target.dataset.section.toUpperCase();
-    }
-  });
-}, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-npSections.forEach(sec => npObserver.observe(sec));
-
-// ═══ Hero background parallax text (moves at a different speed than scroll) ═══
-const heroParallaxText = document.getElementById('heroParallaxText');
-if (heroParallaxText) {
-  window.addEventListener('scroll', () => {
-    const offset = window.scrollY * 0.25;
-    heroParallaxText.style.transform = `translateY(${offset}px)`;
-  }, { passive: true });
-}
-
-// ═══ Hero floating chips — drift with mouse position (parallax depth) ═══
-const heroFloats = document.querySelectorAll('.hero-float');
-const heroSection = document.querySelector('.hero');
-if (heroSection && heroFloats.length) {
-  const floatDepths = [14, 22, 10];
-  heroSection.addEventListener('mousemove', (e) => {
-    const rect = heroSection.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    heroFloats.forEach((el, i) => {
-      const depth = floatDepths[i] || 14;
-      el.style.transform = `translate(${px * depth}px, ${py * depth}px)`;
-    });
-  });
-  heroSection.addEventListener('mouseleave', () => {
-    heroFloats.forEach(el => { el.style.transform = ''; });
-  });
-}
-
-// ═══ Card tilt-on-hover (3D mouse-reactive tilt) ═══
-function addCardTilt(el) {
-  el.addEventListener('mousemove', (e) => {
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
-    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
-    el.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-  });
-  el.addEventListener('mouseleave', () => { el.style.transform = ''; });
-}
-document.querySelectorAll('.sf-card, .lf-card, .mg-card, .dw-card').forEach(addCardTilt);
-
-// ═══ Light / dark theme toggle ═══
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  if (isLight) {
-    document.documentElement.removeAttribute('data-theme');
-    try { localStorage.setItem('reel-theme', 'dark'); } catch (e) {}
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    try { localStorage.setItem('reel-theme', 'light'); } catch (e) {}
-  }
-});
-
-// ═══ Floating background blobs — subtle mouse-parallax drift ═══
-const bgBlobs = document.querySelectorAll('.bg-blob');
-const blobDepths = [16, -12, 10, -18];
-window.addEventListener('mousemove', (e) => {
-  const px = e.clientX / window.innerWidth - 0.5;
-  const py = e.clientY / window.innerHeight - 0.5;
-  bgBlobs.forEach((el, i) => {
-    const depth = blobDepths[i] || 14;
-    el.style.transform = `translate(${px * depth}px, ${py * depth}px)`;
-  });
-});
 
 // ═══ Showreel: lazy-load + autoplay on scroll into view ═══
 const showreelFrame = document.getElementById('showreelFrame');
